@@ -1,39 +1,54 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { FaCalendarAlt, FaClock, FaUser, FaTag, FaFacebook, FaTwitter, FaLinkedin, FaLink } from 'react-icons/fa';
-import { getPostBySlug, getAllPosts } from '@/lib/markdown';
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import {
+  FaCalendarAlt,
+  FaClock,
+  FaUser,
+  FaTag,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaLink,
+} from "react-icons/fa";
+import { getPostBySlug, getAllPosts } from "@/lib/markdown";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
     return {
-      title: 'Post not found | VAMS Biome Blog',
-      description: 'The requested article could not be found.',
+      title: "Post not found | VAMS Biome Blog",
+      description: "The requested article could not be found.",
     };
   }
-  
+
   return {
     title: `${post.title} | VAMS Biome Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: [{
-        url: post.image,
-        width: 1200,
-        height: 630,
-        alt: post.title,
-      }],
-      type: 'article',
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: "article",
       publishedTime: post.date,
       authors: [post.author],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       images: [post.image],
@@ -46,7 +61,11 @@ export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -54,14 +73,19 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     return (
       <div className="max-w-3xl mx-auto px-4 py-16">
         <h1 className="text-2xl font-bold text-gray-900">Post not found</h1>
-        <p className="mt-4 text-gray-600">The article you are looking for does not exist or has been moved.</p>
-        <Link href="/blog" className="mt-6 inline-flex text-primary-600 hover:text-primary-800">
+        <p className="mt-4 text-gray-600">
+          The article you are looking for does not exist or has been moved.
+        </p>
+        <Link
+          href="/blog"
+          className="mt-6 inline-flex text-primary-600 hover:text-primary-800"
+        >
           &larr; Back to blog
         </Link>
       </div>
     );
   }
-  
+
   return (
     <div className="bg-white">
       {/* Article Header */}
@@ -74,9 +98,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <h1 className="mt-4 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl lg:text-5xl">
               {post.title}
             </h1>
-            <p className="mt-6 text-xl text-gray-500">
-              {post.excerpt}
-            </p>
+            <p className="mt-6 text-xl text-gray-500">{post.excerpt}</p>
             <div className="mt-6 flex items-center justify-center space-x-4 text-sm text-gray-500">
               <div className="flex items-center">
                 <FaUser className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
@@ -84,7 +106,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div>
               <div className="flex items-center">
                 <FaCalendarAlt className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
-                {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </div>
               <div className="flex items-center">
                 <FaClock className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" />
@@ -108,13 +134,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             />
           </div>
 
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            className="prose lg:prose-lg max-w-none"
-          >
-            {post.content}
-          </ReactMarkdown>
-          
+          {/* ReactMarkdown content – note: className on wrapper, not on ReactMarkdown */}
+          <div className="prose lg:prose-lg max-w-none">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post.content}
+            </ReactMarkdown>
+          </div>
+
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div className="mt-12">
@@ -122,7 +148,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 {post.tags.map((tag) => (
                   <Link
                     key={tag}
-                    href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
                     className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200"
                   >
                     <FaTag className="mr-1.5 h-3 w-3" />
@@ -132,13 +158,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div>
             </div>
           )}
-          
+
           {/* Share Buttons */}
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-sm font-medium text-gray-900">Share this article</h3>
+            <h3 className="text-sm font-medium text-gray-900">
+              Share this article
+            </h3>
             <div className="mt-3 flex space-x-4">
               <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://vamsbiome.com/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                  `https://vamsbiome.com/blog/${post.slug}`
+                )}&text=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-500"
@@ -147,7 +177,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <FaTwitter className="h-6 w-6" />
               </a>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://vamsbiome.com/blog/${post.slug}`)}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                  `https://vamsbiome.com/blog/${post.slug}`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-500"
@@ -156,7 +188,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <FaFacebook className="h-6 w-6" />
               </a>
               <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://vamsbiome.com/blog/${post.slug}`)}&title=${encodeURIComponent(post.title)}`}
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                  `https://vamsbiome.com/blog/${post.slug}`
+                )}&title=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-500"
@@ -166,9 +200,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </a>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText(`https://vamsbiome.com/blog/${post.slug}`);
-                  // Show a toast or tooltip here in a real app
-                  alert('Link copied to clipboard!');
+                  navigator.clipboard.writeText(
+                    `https://vamsbiome.com/blog/${post.slug}`
+                  );
+                  // Show a toast/notification in a real app
+                  alert("Link copied to clipboard!");
                 }}
                 className="text-gray-400 hover:text-gray-500"
               >
@@ -177,15 +213,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </button>
             </div>
           </div>
-          
+
           {/* Author Bio */}
           <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="flex items-center">
               <div className="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-xl">
-                {post.author.split(' ').map(n => n[0]).join('').toUpperCase()}
+                {post.author
+                  .split(" ")
+                  .map((n: string) => n[0])
+                  .join("")
+                  .toUpperCase()}
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-medium text-gray-900">{post.author}</h3>
+                <h3 className="text-lg font-medium text-gray-900">
+                  {post.author}
+                </h3>
                 <p className="text-primary-600">{post.authorRole}</p>
                 <p className="mt-2 text-gray-600">{post.authorBio}</p>
                 <div className="mt-3 flex space-x-4">
@@ -201,31 +243,33 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div>
             </div>
           </div>
-          
+
           {/* Related Articles */}
           <div className="mt-16">
-            <h2 className="text-2xl font-bold text-gray-900">Related Articles</h2>
+            <h2 className="text-2xl font-bold text-gray-900">
+              Related Articles
+            </h2>
             <div className="mt-6 grid gap-8 lg:grid-cols-3">
               {[
                 {
-                  title: 'How Your Diet Shapes Your Gut Microbiome',
-                  href: '/blog/diet-and-microbiome',
-                  category: 'Health',
-                  date: '2025-08-05',
+                  title: "How Your Diet Shapes Your Gut Microbiome",
+                  href: "/blog/diet-and-microbiome",
+                  category: "Health",
+                  date: "2025-08-05",
                   readTime: 6,
                 },
                 {
-                  title: 'Latest Advances in Probiotics Research',
-                  href: '/blog/probiotics-research-update',
-                  category: 'Research',
-                  date: '2025-09-10',
+                  title: "Latest Advances in Probiotics Research",
+                  href: "/blog/probiotics-research-update",
+                  category: "Research",
+                  date: "2025-09-10",
                   readTime: 5,
                 },
                 {
-                  title: 'The Role of AI in Microbiome Data Analysis',
-                  href: '/blog/ai-in-microbiome-analysis',
-                  category: 'Technology',
-                  date: '2025-08-22',
+                  title: "The Role of AI in Microbiome Data Analysis",
+                  href: "/blog/ai-in-microbiome-analysis",
+                  category: "Technology",
+                  date: "2025-08-22",
                   readTime: 7,
                 },
               ].map((article) => (
@@ -237,7 +281,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   </div>
                   <div className="mt-4 flex items-center text-sm text-gray-500">
                     <time dateTime={article.date}>
-                      {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                      {new Date(article.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
                     </time>
                     <span className="mx-2">&middot;</span>
                     <span>{article.readTime} min read</span>
@@ -258,7 +306,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
         </div>
       </div>
-      
+
       {/* Newsletter Signup */}
       <div className="bg-gray-50 mt-16 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -267,7 +315,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               Stay updated with our latest research
             </h2>
             <p className="mt-3 text-xl text-gray-500">
-              Subscribe to our newsletter to get the latest articles, research updates, and news delivered to your inbox.
+              Subscribe to our newsletter to get the latest articles, research
+              updates, and news delivered to your inbox.
             </p>
             <form className="mt-8 sm:flex">
               <label htmlFor="email-address" className="sr-only">
