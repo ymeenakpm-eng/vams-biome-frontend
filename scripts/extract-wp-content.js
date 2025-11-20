@@ -1,0 +1,270 @@
+const fs = require('fs');
+const path = require('path');
+
+// ---- Paths ----
+const projectRoot = process.cwd();
+const xmlPath = path.join(projectRoot, 'vamsbiome-export.xml');
+const outputDir = path.join(projectRoot, 'content');
+const outputPath = path.join(outputDir, 'wp-content.json');
+
+// ---- Helper: naive XML field extraction (good enough for this export) ----
+function getTagValue(block, tag) {
+  const re = new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`);
+  const m = block.match(re);
+  return m ? m[1].trim() : '';
+}
+
+function getCdataValue(block, tag) {
+  const re = new RegExp(`<${tag}><!\[CDATA\[([\\s\\S]*?)\]\]><\\/${tag}>`);
+  const m = block.match(re);
+  return m ? m[1].trim() : '';
+}
+
+function extractItems(xml, postType) {
+  const items = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+
+  while ((match = itemRegex.exec(xml))) {
+    const block = match[1];
+
+    const type = getTagValue(block, 'wp:post_type');
+    if (type !== postType) continue;
+
+    const status = getTagValue(block, 'wp:status');
+    if (status !== 'publish') continue;
+
+    const id = getTagValue(block, 'wp:post_id');
+    const title = getCdataValue(block, 'title');
+    const slug = getCdataValue(block, 'wp:post_name');
+    const content = getCdataValue(block, 'content:encoded');
+    const excerpt = getCdataValue(block, 'excerpt:encoded');
+
+    items.push({ id, title, slug, content, excerpt });
+  }
+
+  return items;
+}
+
+// ---- Read XML and extract content ----
+if (!fs.existsSync(xmlPath)) {
+  console.error(`XML export not found at ${xmlPath}`);
+  process.exit(1);
+}
+
+const xml = fs.readFileSync(xmlPath, 'utf8');
+
+const pages = extractItems(xml, 'page');
+const posts = extractItems(xml, 'post');
+
+// Index pages by slug for easier lookup in the app
+const pagesBySlug = {};
+for (const page of pages) {
+  if (page.slug) {
+    pagesBySlug[page.slug] = page;
+  }
+}
+
+// ---- Design system config based on your spec ----
+const designSystem = {
+  brand: {
+    name: 'VAMS Biome',
+    tagline: 'Decode Your Microbiome. Define Your Health.',
+    colors: {
+      palette: {
+        deepBiomeBlue: {
+          hex: '#004E7C',
+          role: 'primary',
+          purpose: 'Trust, Science, Reliability'
+        },
+        vitalGreen: {
+          hex: '#6DBE45',
+          role: 'accent',
+          purpose: 'Health, Growth, Vitality'
+        },
+        freshAqua: {
+          hex: '#88E0EF',
+          role: 'accent',
+          purpose: 'Cleanliness, Clarity, Fresh Start'
+        },
+        calmGrey: {
+          hex: '#E5E7EB',
+          role: 'background',
+          purpose: 'Balance, Neutrality, Professionalism'
+        },
+        pureWhite: {
+          hex: '#FFFFFF',
+          role: 'background',
+          purpose: 'Simplicity, Openness'
+        }
+      },
+      usage: {
+        primary: 'deepBiomeBlue',
+        accents: ['vitalGreen', 'freshAqua'],
+        backgrounds: ['pureWhite', 'calmGrey'],
+        textDefault: '#111827',
+        textMuted: '#4B5563'
+      }
+    },
+    typography: {
+      fonts: {
+        headers: {
+          family: 'Poppins',
+          weights: ['500', '600', '700'],
+          purpose: 'Modern, friendly, clean headlines'
+        },
+        body: {
+          family: 'Inter',
+          weights: ['400', '500'],
+          purpose: 'Highly readable, professional, neutral body copy'
+        },
+        callouts: {
+          family: 'Raleway',
+          weights: ['500'],
+          purpose: 'Elegant, clear emphasis for quotes, insights'
+        }
+      },
+      scale: {
+        h1: {
+          sizePx: [36, 40],
+          usage: ['Homepage banners', 'Product titles']
+        },
+        h2: {
+          sizePx: [28, 32],
+          usage: ['Section headers']
+        },
+        h3: {
+          sizePx: [22, 26],
+          usage: ['Subsections']
+        },
+        body: {
+          sizePx: [16, 18],
+          usage: ['Body copy', 'Paragraphs']
+        },
+        button: {
+          sizePx: 16,
+          weight: '600',
+          usage: ['Primary and secondary CTAs']
+        }
+      }
+    },
+    moodboard: {
+      visualTone: ['Clean', 'Scientific', 'Approachable', 'Hopeful'],
+      imagery: {
+        science: [
+          'Abstract DNA strands',
+          'Cellular / microbiome micrographs',
+          'Molecular structures'
+        ],
+        wellness: [
+          'Soft-focus lifestyle / wellness imagery',
+          'Gut and skin health visuals',
+          'Natural textures and gradients'
+        ],
+        layout: [
+          'High whitespace',
+          'Simple grid systems',
+          'Clear visual hierarchy'
+        ]
+      },
+      references: {
+        brands: ['InsideTracker', 'Viome', 'Thorne Health', 'Levels Health'],
+        inspirations: [
+          'Healthcare Wireframe Website (Envato Elements)',
+          'Healthcare App Wireframes (Dribbble)',
+          'Health Insurance Website Wireframe (Visme)'
+        ]
+      }
+    }
+  },
+  homepageWireframe: {
+    route: '/',
+    sections: [
+      {
+        id: 'hero',
+        type: 'hero',
+        props: {
+          headline: 'Decode Your Microbiome. Define Your Health.',
+          subheadline:
+            'A clean, science-led platform for diagnostics, AI insights, and microbiome therapeutics.',
+          primaryCta: {
+            label: 'Decode Your Microbiome',
+            variant: 'primary',
+            target: '/biomewell'
+          },
+          secondaryCta: {
+            label: 'Explore BiomeInsights',
+            variant: 'secondary',
+            target: '/blog'
+          },
+          backgroundStyle: 'gradient',
+          backgroundColors: ['deepBiomeBlue', 'freshAqua']
+        }
+      },
+      {
+        id: 'threeColumnHighlights',
+        type: 'features-grid',
+        columns: 3,
+        items: [
+          {
+            title: 'Diagnostics (BiomeWell)',
+            description:
+              'At-home microbiome kits, guided sampling, and clinically-readable reports.',
+            iconStyle: 'science',
+            link: '/biomewell'
+          },
+          {
+            title: 'Marketplace (BiomeMart)',
+            description:
+              'Evidence-backed supplements, protocols, and partner products mapped to microbiome profiles.',
+            iconStyle: 'cart',
+            link: '/biomemart'
+          },
+          {
+            title: 'AI Insights (BiomeAI)',
+            description:
+              'FASTQ upload, rule-based insights, and PDF reporting powered by microbiome-specific models.',
+            iconStyle: 'ai-brain',
+            link: '/biomeai'
+          }
+        ]
+      },
+      {
+        id: 'blogPreview',
+        type: 'blog-preview',
+        source: 'BiomeInsights',
+        maxPosts: 3,
+        cta: {
+          label: 'View all insights',
+          target: '/blog'
+        }
+      },
+      {
+        id: 'testimonials',
+        type: 'testimonials',
+        style: 'clean-grid',
+        copyGuidance:
+          'Highlight trust, clarity of reports, and how insights changed decisions.',
+        background: 'calmGrey'
+      }
+    ]
+  }
+};
+
+// ---- Final JSON structure ----
+const output = {
+  designSystem,
+  content: {
+    pages,
+    pagesBySlug,
+    posts
+  }
+};
+
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+fs.writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf8');
+
+console.log(`✅ Extracted ${pages.length} pages and ${posts.length} posts to ${outputPath}`);

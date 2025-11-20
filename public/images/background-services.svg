@@ -1,0 +1,14 @@
+<svg width="1600" height="600" viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="servicesBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F9FAFB" />
+      <stop offset="1" stop-color="#E0F2FE" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#servicesBg)" />
+  <circle cx="220" cy="120" r="90" fill="#88E0EF22" />
+  <circle cx="1350" cy="180" r="130" fill="#6DBE4522" />
+  <circle cx="900" cy="80" r="70" fill="#004E7C11" />
+  <circle cx="400" cy="420" r="110" fill="#004E7C08" />
+  <circle cx="1150" cy="420" r="90" fill="#88E0EF18" />
+</svg>
