@@ -140,17 +140,56 @@ export default function RootLayout({
                       Terms &amp; Conditions
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/refund-policy" className="hover:text-cyan-300">
+                      Refund Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/shipping-policy" className="hover:text-cyan-300">
+                      Shipping Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/data-protection" className="hover:text-cyan-300">
+                      Data Protection (HIPAA / GDPR)
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <p className="mt-6 text-[11px] text-sky-100/70">
-              © {new Date().getFullYear()} VAMS BIOME. For informational use only; not a substitute for
-              professional medical advice, diagnosis, or treatment.
-            </p>
-            <p className="mt-1 text-[11px] text-sky-100/70">
-              BiomeMart store experiences are powered by a self-hosted Medusa backend.
-            </p>
+            <div className="mt-6 flex flex-col gap-2 border-t border-sky-800 pt-4 text-[11px] text-sky-100/80 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p>
+                  © {new Date().getFullYear()} VAMS BIOME. For informational use only; not a substitute for
+                  professional medical advice, diagnosis, or treatment.
+                </p>
+                <p className="mt-1">
+                  BiomeMart store experiences are powered by a self-hosted Medusa backend.
+                </p>
+              </div>
+              <div className="flex flex-col gap-1 md:items-end">
+                <p>
+                  Contact: <a href="mailto:support@vamsbiome.com" className="hover:text-cyan-300">support@vamsbiome.com</a>
+                </p>
+                <p>Phone: +91-XXX-XXX-XXXX · +61-XXX-XXX-XXX (regional support)</p>
+                <p className="flex gap-3">
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+                    Instagram
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+                    LinkedIn
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+                    YouTube
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+                    Twitter
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </footer>
       </body>
