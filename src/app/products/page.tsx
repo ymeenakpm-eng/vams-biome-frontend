@@ -60,16 +60,22 @@ export default async function ProductsPage() {
                     BiomeAI signals.
                   </p>
                 </div>
-                <button className="mt-4 w-fit rounded-full bg-emerald-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-emerald-600">
+                <a
+                  href="#featured-products"
+                  className="mt-4 inline-flex w-fit rounded-full bg-emerald-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-emerald-600"
+                >
                   View products
-                </button>
+                </a>
               </article>
             ))}
           </div>
         </section>
 
         {/* Medusa-powered featured products */}
-        <section className="mb-10 rounded-2xl bg-white p-6 shadow-sm">
+        <section
+          id="featured-products"
+          className="mb-10 scroll-mt-28 rounded-2xl bg-white p-6 shadow-sm"
+        >
           <h2 className="mb-3 text-lg font-semibold text-slate-900">
             Featured products from our Medusa store
           </h2>

@@ -8,6 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,19 +77,49 @@ export default function Navbar() {
                 Blog
               </Link>
 
-              {/* Utility links */}
-              <Link
-                href="/dashboard"
-                className="text-gray-700 hover:text-primary text-sm transition-colors"
-              >
-                My Dashboard
-              </Link>
-              <Link
-                href="/login"
-                className="text-gray-700 hover:text-primary text-sm transition-colors"
-              >
-                Sign in
-              </Link>
+              {/* Utility / account dropdown */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setAccountOpen((prev) => !prev)}
+                  className="flex items-center gap-1 text-gray-700 hover:text-primary text-sm transition-colors"
+                >
+                  <span>My dashboard</span>
+                  <span className="text-[10px]">▼</span>
+                </button>
+                {accountOpen && (
+                  <div className="absolute right-0 mt-2 w-40 rounded-md bg-white py-2 shadow-lg ring-1 ring-black/5">
+                    <Link
+                      href="/dashboard"
+                      className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+                      onClick={() => setAccountOpen(false)}
+                    >
+                      My dashboard
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+                      onClick={() => setAccountOpen(false)}
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="/register"
+                      className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+                      onClick={() => setAccountOpen(false)}
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      href="/admin"
+                      className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+                      onClick={() => setAccountOpen(false)}
+                    >
+                      Admin login
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               {/* Primary CTA */}
               <Link
@@ -177,7 +208,21 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
-              Sign in
+              Login
+            </Link>
+            <Link
+              href="/register"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Register
+            </Link>
+            <Link
+              href="/admin"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Admin login
             </Link>
             <Link
               href="/well"
