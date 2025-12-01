@@ -3,18 +3,23 @@ import { NextResponse } from "next/server"
 function env() {
   const base = process.env.MEDUSA_BACKEND_URL
   if (!base) throw new Error("MEDUSA_BACKEND_URL missing")
-  return { base }
+  const publishableKey = process.env.MEDUSA_PUBLISHABLE_KEY
+  if (!publishableKey) throw new Error("MEDUSA_PUBLISHABLE_KEY missing")
+  return { base, publishableKey }
 }
 
 export async function POST(req: Request) {
   try {
-    const { base } = env()
+    const { base, publishableKey } = env()
     const body = await req.json().catch(() => ({}))
 
     // Create customer
     const createRes = await fetch(`${base}/store/customers`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        "x-publishable-api-key": publishableKey,
+      },
       body: JSON.stringify(body),
       cache: "no-store",
     })
@@ -28,7 +33,10 @@ export async function POST(req: Request) {
     if (body?.email && body?.password) {
       const loginRes = await fetch(`${base}/store/auth`, {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: {
+          "content-type": "application/json",
+          "x-publishable-api-key": publishableKey,
+        },
         body: JSON.stringify({ email: body.email, password: body.password }),
         cache: "no-store",
       })

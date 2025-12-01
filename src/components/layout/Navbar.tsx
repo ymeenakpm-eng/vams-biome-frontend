@@ -90,13 +90,6 @@ export default function Navbar() {
                 {accountOpen && (
                   <div className="absolute right-0 mt-2 w-40 rounded-md bg-white py-2 shadow-lg ring-1 ring-black/5">
                     <Link
-                      href="/dashboard"
-                      className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
-                      onClick={() => setAccountOpen(false)}
-                    >
-                      My dashboard
-                    </Link>
-                    <Link
                       href="/login"
                       className="block px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
                       onClick={() => setAccountOpen(false)}
