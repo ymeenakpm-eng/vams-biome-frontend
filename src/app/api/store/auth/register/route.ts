@@ -26,28 +26,54 @@ export async function POST(req: Request) {
 
     const createText = await createRes.text()
     if (!createRes.ok) {
-      return new NextResponse(createText, { status: createRes.status, headers: { "content-type": createRes.headers.get("content-type") || "application/json" } })
-    }
-
-    // Auto-login if email/password provided
-    if (body?.email && body?.password) {
-      const loginRes = await fetch(`${base}/store/auth`, {
-        method: "POST",
+      return new NextResponse(createText, {
+        status: createRes.status,
         headers: {
-          "content-type": "application/json",
-          "x-publishable-api-key": publishableKey,
+          "content-type":
+            createRes.headers.get("content-type") || "application/json",
         },
-        body: JSON.stringify({ email: body.email, password: body.password }),
-        cache: "no-store",
       })
-      const out = new NextResponse(await loginRes.text(), { status: loginRes.status, headers: { "content-type": loginRes.headers.get("content-type") || "application/json" } })
-      const setCookie = loginRes.headers.get("set-cookie")
-      if (setCookie) out.headers.set("set-cookie", setCookie)
-      return out
     }
 
-    return new NextResponse(createText, { status: 200, headers: { "content-type": "application/json" } })
+    // Best-effort auto-login: do not fail registration if this part breaks.
+    if (body?.email && body?.password) {
+      try {
+        const loginRes = await fetch(`${base}/store/auth`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "x-publishable-api-key": publishableKey,
+          },
+          body: JSON.stringify({ email: body.email, password: body.password }),
+          cache: "no-store",
+        })
+
+        // If login succeeds, forward its response + cookie.
+        if (loginRes.ok) {
+          const out = new NextResponse(await loginRes.text(), {
+            status: loginRes.status,
+            headers: {
+              "content-type":
+                loginRes.headers.get("content-type") || "application/json",
+            },
+          })
+          const setCookie = loginRes.headers.get("set-cookie")
+          if (setCookie) out.headers.set("set-cookie", setCookie)
+          return out
+        }
+      } catch {
+        // Ignore auto-login errors; fall through to success response.
+      }
+    }
+
+    // Customer was created; let frontend redirect user to /login.
+    return new NextResponse(createText || "{}", {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    })
   } catch (e: any) {
-    return NextResponse.json({ message: e?.message || String(e) }, { status: 500 })
+    return NextResponse.json({ message: e?.message || String(e) }, {
+      status: 500,
+    })
   }
 }
