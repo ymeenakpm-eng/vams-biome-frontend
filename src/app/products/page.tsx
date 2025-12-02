@@ -21,7 +21,7 @@ export default async function ProductsPage() {
             <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">
               Microbiome-first products, protocols, and subscriptions
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-slate-600">
+            <p className="mt-3 max-w-2xl text-sm text-slate-600 text-justify">
               From targeted probiotics to functional foods, explore products designed to align with
               real microbiome science, your BiomeAI insights, and guidance from your care team.
             </p>
@@ -165,14 +165,14 @@ export default async function ProductsPage() {
         {/* Human Probiotics Formulations */}
         <section className="mb-10 rounded-2xl bg-white p-6 shadow-sm">
           <h2 className="mb-3 text-lg font-semibold text-slate-900">Human Probiotics Formulations</h2>
-          <p className="mb-3 text-sm text-slate-600">
-            Our Women&apos;s Health Probiotic Formulation is a clinically designed, condition-targeted
+          <p className="mb-3 text-sm text-slate-600 text-justify">
+            Our Women's Health Probiotic Formulation is a clinically designed, condition-targeted
             blend created to restore microbiome balance, strengthen immunity, and support long-term
             feminine wellness. Powered by research-backed probiotic strains, this formulation helps
-            address common women&apos;s health concerns—including PCOS, UTI prevention, menopause
+            address common women's health concerns—including PCOS, UTI prevention, menopause
             symptoms, and vaginal microbiome health.
           </p>
-          <p className="mb-3 text-sm text-slate-600">
+          <p className="mb-3 text-sm text-slate-600 text-justify">
             By promoting Lactobacillus dominance, regulating inflammation, and supporting
             hormone-related pathways, this targeted probiotic formula enhances gut–vaginal balance,
             protects against recurrent infections, and supports metabolic and reproductive health.
@@ -180,7 +180,7 @@ export default async function ProductsPage() {
           <div className="mb-4 text-xs text-slate-700">
             <h3 className="text-sm font-semibold text-slate-900">Key features (SEO-optimised)</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5">
-              <li>Condition-targeted women&apos;s probiotic for PCOS and hormonal balance.</li>
+              <li>Condition-targeted women's probiotic for PCOS and hormonal balance.</li>
               <li>Supports UTI prevention, vaginal pH, and Lactobacillus dominance.</li>
               <li>Helps ease menopause-related symptoms.</li>
               <li>Strengthens immunity and promotes microbiome resilience.</li>
@@ -265,7 +265,7 @@ export default async function ProductsPage() {
         {/* Aquaculture Solutions */}
         <section className="mb-10 rounded-2xl bg-white p-6 shadow-sm">
           <h2 className="mb-3 text-lg font-semibold text-slate-900">Aquaculture Solutions</h2>
-          <p className="mb-3 text-sm text-slate-600">
+          <p className="mb-3 text-sm text-slate-600 text-justify">
             VAMS BIOME offers cutting-edge aquaculture solutions to address critical industry
             challenges such as high mortality, antibiotic dependence, and feed inefficiencies. Our
             heat-stable, feed-ready probiotics are specifically engineered for shrimp and fish

@@ -14,7 +14,7 @@ export default function ReportPage() {
         <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
           <div>
             <h1 className="text-2xl font-semibold text-slate-900">VamsBiome AI-powered reports</h1>
-            <p className="mt-2 text-sm text-slate-700 max-w-3xl">
+            <p className="mt-2 text-sm text-slate-700 max-w-3xl text-justify">
               VamsBiome leverages a proprietary AI analytics platform to convert complex sequencing
               data into personalized, clinically relevant microbiome insights. Designed for labs,
               clinics, and telehealth providers, it provides a deep understanding of your gut and

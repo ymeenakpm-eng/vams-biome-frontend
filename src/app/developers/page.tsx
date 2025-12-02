@@ -11,7 +11,7 @@ export default function DevelopersPage() {
           <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
             VamsBiome AI-Powered Reporting Platform
           </h1>
-          <p className="mt-3 text-sm text-slate-700">
+          <p className="mt-3 text-sm text-slate-700 text-justify">
             The VamsBiome AI-Powered Reporting Platform is a cutting-edge analytics solution that
             converts raw microbiome sequencing data into clear, consumer-friendly reports.
             Designed for labs, clinics, and telehealth providers, it empowers healthcare

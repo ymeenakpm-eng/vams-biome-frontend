@@ -15,7 +15,7 @@ export default function DiagnosticsPage() {
             <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">
               At-home microbiome testing for everyday health decisions
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-slate-600">
+            <p className="mt-3 max-w-2xl text-sm text-slate-600 text-justify">
               Choose from gut, vaginal, skin, oral, and full-body microbiome panels designed for
               real-world use in India, Australia, and beyond. Each kit connects directly into BiomeAI
               for simple, visual reports.
@@ -185,7 +185,7 @@ export default function DiagnosticsPage() {
           {/* Reports & AI Linking */}
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h2 className="mb-3 text-lg font-semibold text-slate-900">Reports & AI insights</h2>
-            <p className="mb-3 text-sm text-slate-600">
+            <p className="mb-3 text-sm text-slate-600 text-justify">
               Every test kit is wired into BiomeAI so you receive clear, visual summaries instead of raw
               spreadsheets or jargon-heavy PDFs.
             </p>

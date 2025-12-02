@@ -14,7 +14,7 @@ export default function GutCampaignPage() {
           <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
             Is your gut holding you back?
           </h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-700">
+          <p className="mt-3 max-w-2xl text-sm text-slate-700 text-justify">
             Bloating, inconsistent digestion, skin flare-ups, or low energy can all be linked to the
             microbes living in your gut. The VAMS BIOME gut microbiome kit turns those signals into
             clear, AI-supported guidance.
@@ -38,7 +38,7 @@ export default function GutCampaignPage() {
         {/* Comparison table */}
         <section className="mb-10 rounded-2xl bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-slate-900">Why VAMS BIOME gut testing wins</h2>
-          <p className="mt-2 text-sm text-slate-700">
+          <p className="mt-2 text-sm text-slate-700 text-justify">
             Not all gut tests or probiotic plans are created equal. Here is how our approach compares
             to typical, one-size-fits-all options.
           </p>

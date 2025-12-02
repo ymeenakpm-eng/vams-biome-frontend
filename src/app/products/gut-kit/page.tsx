@@ -19,14 +19,14 @@ export default function GutKitPage() {
           <h1 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
             GUT HIM / HER  Advanced Gut Microbiome Test Kit
           </h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-700">
+          <p className="mt-3 max-w-2xl text-sm text-slate-700 text-justify">
             The GUT HIM Microbiome Test Kit is a science-backed at-home gut health assessment
             designed specifically for men. Using advanced DNA sequencing, this test analyses the
             balance of gut bacteria to identify dysbiosis, the abundance of SCFA-producing
             microbes, and the overall gut barrier integrity—all crucial foundations for digestive
             comfort, energy, immunity, and metabolic performance.
           </p>
-          <p className="mt-2 max-w-2xl text-sm text-slate-700">
+          <p className="mt-2 max-w-2xl text-sm text-slate-700 text-justify">
             This male-specific report reveals how your microbiome may influence weight regulation,
             hormonal balance, inflammation, athletic recovery, and long-term metabolic health. With
             personalised insights and actionable recommendations, GUT HIM empowers men to make

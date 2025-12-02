@@ -74,7 +74,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
                 About VAMS BIOME
               </h2>
-              <p className="mt-4 text-sm text-gray-700 leading-relaxed">
+              <p className="mt-4 text-sm text-gray-700 leading-relaxed text-justify">
                 VAMS BIOME is a next-generation biotech and wellness company positioned at the
                 intersection of sustainable aquaculture and personalized human health. Our
                 foundation is in the high-demand aquaculture probiotics market, with a clear
@@ -86,14 +86,14 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-6 text-base font-semibold text-gray-900">Mission</h3>
-              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed text-justify">
                 To decode the human microbiome and deliver personalized, actionable health
                 insights and sustainable probiotic innovations that transform both individual
                 wellness and global food production.
               </p>
 
               <h3 className="mt-6 text-base font-semibold text-gray-900">Our commitment to gut health</h3>
-              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed text-justify">
                 At our core, we are dedicated to enhancing gut health through cutting-edge
                 research and personalized solutions. Our mission is to empower individuals with
                 the tools and knowledge necessary to understand their gut microbiome better and

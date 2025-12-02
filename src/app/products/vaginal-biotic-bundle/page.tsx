@@ -11,7 +11,7 @@ export default function VaginalBioticBundlePage() {
           <h1 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
             Vaginal Biotic Bundle  Womens Microbiome Support
           </h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-700">
+          <p className="mt-3 max-w-2xl text-sm text-slate-700 text-justify">
             A condition-targeted probiotic bundle designed to support vaginal microbiome balance,
             Lactobacillus dominance, pH stability, and long-term comfort.
           </p>
@@ -43,7 +43,7 @@ export default function VaginalBioticBundlePage() {
 
         <section className="mb-6 rounded-2xl bg-white p-5 shadow-sm">
           <h2 className="text-base font-semibold text-slate-900">Ingredients snapshot</h2>
-          <p className="mt-2 text-xs text-slate-700">
+          <p className="mt-2 text-xs text-slate-700 text-justify">
             Final strains and CFU counts will be defined with manufacturing partners. The formulation is
             intended to include:
           </p>
@@ -62,7 +62,7 @@ export default function VaginalBioticBundlePage() {
 
         <section className="mb-6 rounded-2xl bg-white p-5 shadow-sm">
           <h2 className="text-base font-semibold text-slate-900">Clinical proof & positioning</h2>
-          <p className="mt-2 text-xs text-slate-700">
+          <p className="mt-2 text-xs text-slate-700 text-justify">
             This bundle is inspired by clinical literature on vaginal microbiome balance, BV risk,
             pH regulation, and recurrence prevention. It is not a substitute for medical care but is
             intended to sit alongside clinician-guided management and diagnostics.

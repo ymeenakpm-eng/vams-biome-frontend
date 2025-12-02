@@ -11,7 +11,7 @@ export default function PartnersPage() {
           <h1 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
             Grow with the VAMS BIOME affiliate program
           </h1>
-          <p className="mt-3 text-sm text-slate-700">
+          <p className="mt-3 text-sm text-slate-700 text-justify">
             Whether you&apos;re a creator, clinician, coach, or community leader, you can earn rewards by
             introducing your audience to microbiome testing and science-backed probiotics.
           </p>
@@ -57,7 +57,7 @@ export default function PartnersPage() {
             </a>{" "}
             with a short note about your work and audience size.
           </p>
-          <p className="mt-2 text-xs text-slate-600">
+          <p className="mt-2 text-xs text-slate-600 text-justify">
             In later phases, this page can connect to an automated referral platform and partner portal.
           </p>
         </section>
