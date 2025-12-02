@@ -5,6 +5,12 @@ function env() {
   if (!base) throw new Error("MEDUSA_BACKEND_URL missing")
   const publishableKey = process.env.MEDUSA_PUBLISHABLE_KEY
   if (!publishableKey) throw new Error("MEDUSA_PUBLISHABLE_KEY missing")
+  // Debug: log which backend + key this route is using (do not log in production)
+  console.log("[store/register] env", {
+    base,
+    hasKey: !!publishableKey,
+    keyPrefix: publishableKey.slice(0, 8),
+  })
   return { base, publishableKey }
 }
 
@@ -14,12 +20,15 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => ({}))
 
     // Create customer
+    const createHeaders: Record<string, string> = {
+      "content-type": "application/json",
+      "x-publishable-api-key": publishableKey,
+    }
+    console.log("[store/register] POST /store/customers headers", createHeaders)
+
     const createRes = await fetch(`${base}/store/customers`, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-publishable-api-key": publishableKey,
-      },
+      headers: createHeaders,
       body: JSON.stringify(body),
       cache: "no-store",
     })

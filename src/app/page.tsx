@@ -14,24 +14,30 @@ export default function HomePage() {
               Unified microbiome ecosystem
             </p>
             <h1 className="mt-2 text-4xl font-bold text-slate-900 md:text-5xl">
-              Decode your microbiome. Design your next chapter.
+              Know your microbiome. Unlock your health.
             </h1>
             <p className="mt-4 text-sm text-slate-700 max-w-xl">
-              VAMS BIOME connects diagnostics, AI insights, products, and care into one experience so
-              people can move from lab results to real-world action.
+              Decode what is happening across your gut, vaginal, skin, and oral microbiomes—then use
+              AI-guided reports and microbiome-safe products to turn insights into action.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/well"
                 className="rounded-full bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600"
               >
-                Start with BiomeWell
+                Explore kits
               </Link>
               <Link
                 href="/ai/report"
                 className="rounded-full bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600"
               >
-                Preview BiomeAI report
+                View report demo
+              </Link>
+              <Link
+                href="/campaign/gut"
+                className="text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+              >
+                Is your gut holding you back?
               </Link>
             </div>
           </div>
@@ -67,10 +73,10 @@ export default function HomePage() {
         <section className="mb-10">
           <div className="flex flex-wrap items-center justify-center gap-4 rounded-2xl bg-sky-100 px-4 py-3 text-xs font-semibold tracking-wide text-slate-600">
             <span className="text-slate-800">Trusted foundations:</span>
-            <span>ISO-aligned lab partners</span>
-            <span>GMP manufacturing and cold-chain logistics</span>
-            <span>HIPAA / GDPR-conscious data design</span>
-            <span>Secure Stripe payments</span>
+            <span>ISO / CAP-aligned partner labs</span>
+            <span>GMP production &amp; cold-chain logistics</span>
+            <span>HIPAA / GDPR-conscious data flows</span>
+            <span>Secure Stripe payments &amp; audited cloud infra</span>
           </div>
         </section>
 
@@ -221,21 +227,6 @@ export default function HomePage() {
               <li>• Trends over repeat testing</li>
             </ul>
             <ul className="space-y-1 text-slate-100/90 text-xs">
-              <li>• Personalized food lists (add / minimize / avoid)</li>
-              <li>• Rules-based supplement and protocol suggestions</li>
-              <li>• Exportable clinician-ready report</li>
-            </ul>
-          </div>
-          <Link
-            href="/ai/report"
-            className="mt-6 inline-flex items-center rounded-full bg-sky-400 px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-sky-300"
-          >
-            Explore AI demo
-          </Link>
-        </section>
-
-        {/* Trust + testimonials preview */}
-        <section className="mb-16 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl bg-slate-900 p-6 text-slate-50">
             <h2 className="text-lg font-semibold">Built with science and security</h2>
             <ul className="mt-3 space-y-1 text-sm text-slate-200">
@@ -244,32 +235,6 @@ export default function HomePage() {
               <li>• Encryption in transit and at rest for reports and identifiers</li>
               <li>• Secure Stripe payments and audited infrastructure on Vercel</li>
             </ul>
-          </div>
-          <div className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-900">What people are saying</h2>
-            <div className="mt-3 space-y-4 text-sm text-slate-700">
-              <div>
-                <p className="text-slate-800">
-                  The vaginal microbiome test helped me understand my recurring infections. The step-by-step
-                  protocol made everything feel manageable.
-                </p>
-                <p className="mt-1 text-xs text-slate-500">Aditi, 29  b7 Bangalore</p>
-              </div>
-              <div>
-                <p className="text-slate-800">
-                  My gut report surfaced patterns no routine blood panel ever picked up. The diet and supplement
-                  plan actually fit my life.
-                </p>
-                <p className="mt-1 text-xs text-slate-500">Rohan, 35  b7 Mumbai</p>
-              </div>
-              <div>
-                <p className="text-slate-800">
-                  The skin microbiome kit finally explained my flare-ups and gave me a roadmap beyond topical
-                  creams.
-                </p>
-                <p className="mt-1 text-xs text-slate-500">Sarah, 33  b7 Sydney</p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -309,10 +274,11 @@ export default function HomePage() {
           </div>
           <div className="rounded-2xl bg-sky-100 p-6">
             <h2 className="text-lg font-semibold text-slate-900">
-              Join the movement for smarter microbiome health.
+              Sign up to unlock your personalized wellness journey.
             </h2>
             <p className="mt-2 text-sm text-slate-700">
-              Science-backed insights, new product launches, and exclusive offers"straight to your inbox.
+              Join the VAMS BIOME list for a Free Gut Guide, launch updates, and subscriber-only
+              offers on diagnostics, probiotics, and new AI report features.
             </p>
             <form className="mt-4 flex flex-col gap-2 sm:flex-row">
               <input
@@ -325,11 +291,12 @@ export default function HomePage() {
                 type="submit"
                 className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600"
               >
-                Subscribe
+                Join now
               </button>
             </form>
             <p className="mt-2 text-[11px] text-slate-500">
-              No spam"just occasional updates on diagnostics, AI features, and microbiome-safe products.
+              No spamjust occasional, research-backed emails on diagnostics, AI features, and
+              microbiome-safe products.
             </p>
           </div>
         </section>

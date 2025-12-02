@@ -53,16 +53,7 @@ export default function Navbar() {
                 Home
               </Link>
               <Link href="/well" className="text-gray-700 hover:text-primary transition-colors">
-                Diagnostics
-              </Link>
-              <Link
-                href="/ai/report"
-                className="text-gray-700 hover:text-primary transition-colors"
-              >
-                AI Insights
-              </Link>
-              <Link href="/products" className="text-gray-700 hover:text-primary transition-colors">
-                Products
+                Shop
               </Link>
               <Link
                 href="/how-it-works"
@@ -70,11 +61,23 @@ export default function Navbar() {
               >
                 How It Works
               </Link>
+              <Link
+                href="/ai/report"
+                className="text-gray-700 hover:text-primary transition-colors"
+              >
+                AI Report Demo
+              </Link>
               <Link href="/science" className="text-gray-700 hover:text-primary transition-colors">
                 The Science
               </Link>
               <Link href="/blog" className="text-gray-700 hover:text-primary transition-colors">
                 Blog
+              </Link>
+              <Link href="/about" className="text-gray-700 hover:text-primary transition-colors">
+                About Us
+              </Link>
+              <Link href="/contact" className="text-gray-700 hover:text-primary transition-colors">
+                Contact Us
               </Link>
 
               {/* Utility / account dropdown */}
@@ -152,21 +155,7 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
-              Diagnostics
-            </Link>
-            <Link
-              href="/ai/report"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
-              onClick={() => setIsOpen(false)}
-            >
-              AI Insights
-            </Link>
-            <Link
-              href="/products"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
-              onClick={() => setIsOpen(false)}
-            >
-              Products
+              Shop
             </Link>
             <Link
               href="/how-it-works"
@@ -174,6 +163,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               How It Works
+            </Link>
+            <Link
+              href="/ai/report"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              AI Report Demo
             </Link>
             <Link
               href="/science"
@@ -188,6 +184,20 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Blog
+            </Link>
+            <Link
+              href="/about"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact Us
             </Link>
             <Link
               href="/dashboard"

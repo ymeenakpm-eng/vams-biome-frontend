@@ -1,5 +1,6 @@
 import { FaFlask, FaDna, FaMicroscope, FaChartLine } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'About VAMS BIOME',
@@ -68,40 +69,79 @@ export default function AboutPage() {
       {/* Mission Section */}
       <div className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 space-y-12 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
             <div>
               <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                Our mission & vision
+                About VAMS BIOME
               </h2>
-              <p className="mt-3 text-lg text-gray-500">
-                VAMS BIOME exists to turn complex microbiome science into everyday tools for prevention,
-                personalised care, and research. We bring together diagnostics, AI, marketplaces,
-                telehealth, and community so people are never left alone with a confusing report.
+              <p className="mt-4 text-sm text-gray-700 leading-relaxed">
+                VAMS BIOME is a next-generation biotech and wellness company positioned at the
+                intersection of sustainable aquaculture and personalized human health. Our
+                foundation is in the high-demand aquaculture probiotics market, with a clear
+                expansion pathway into human microbiome solutions. We are developing an
+                AI-powered platform for microbiome testing, personalized reporting, and
+                therapeutic development. Our initial focus is women&apos;s health—a segment
+                characterized by high customer loyalty, significant unmet clinical needs, and
+                long-term growth potential.
               </p>
-              <p className="mt-3 text-lg text-gray-500">
-                Our vision is a world where microbiome intelligence is accessible, ethically deployed,
-                and woven into routine care across India, Australia, and global collaborators.
+
+              <h3 className="mt-6 text-base font-semibold text-gray-900">Mission</h3>
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                To decode the human microbiome and deliver personalized, actionable health
+                insights and sustainable probiotic innovations that transform both individual
+                wellness and global food production.
               </p>
-              <div className="mt-8">
-                <div className="inline-flex rounded-md shadow">
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark"
-                  >
-                    Explore Our Services
-                  </Link>
-                </div>
-              </div>
+
+              <h3 className="mt-6 text-base font-semibold text-gray-900">Our commitment to gut health</h3>
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                At our core, we are dedicated to enhancing gut health through cutting-edge
+                research and personalized solutions. Our mission is to empower individuals with
+                the tools and knowledge necessary to understand their gut microbiome better and
+                connect them with healthcare professionals for tailored treatments.
+              </p>
+
+              <h3 className="mt-6 text-base font-semibold text-gray-900">Empowering gut health: our journey</h3>
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                Since our founding, we have dedicated ourselves to revolutionizing gut health.
+                Our journey highlights key milestones in our mission to detect and treat gut
+                bacteria effectively. Each step represents progress in advancing science and
+                empowering individuals to take control of their wellness.
+              </p>
+
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li>
+                  <span className="font-semibold">Launch of testing kits.</span> Introduced user-friendly
+                  gut bacteria testing kits, making health tracking accessible to everyone.
+                </li>
+                <li>
+                  <span className="font-semibold">AI report integration.</span> Launched AI-driven report
+                  generation to provide insightful and personalized health assessments.
+                </li>
+                <li>
+                  <span className="font-semibold">Telehealth services started.</span> Began offering
+                  telehealth services to connect users with expert doctors for personalized
+                  guidance.
+                </li>
+                <li>
+                  <span className="font-semibold">Probiotic marketplace unveiled.</span> Introduced a
+                  marketplace for probiotics, making it easier to find quality wellness products.
+                </li>
+                <li>
+                  <span className="font-semibold">User registration portal launch.</span> Launched a
+                  registration system that allows for personalized profiles and health tracking.
+                </li>
+              </ul>
             </div>
+
             <div className="mt-10 -mx-4 relative lg:mt-0">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <div className="relative block w-full bg-white rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-                  <div className="aspect-w-3 aspect-h-2">
-                    <div className="w-full h-64 bg-gray-200 flex items-center justify-center text-gray-400">
-                      <span>Lab Facility Image</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md overflow-hidden">
+                <Image
+                  src="/images/biomemart-kit.jpg"
+                  alt="VAMS BIOME kit and lab environment"
+                  width={600}
+                  height={400}
+                  className="h-64 w-full object-cover"
+                />
               </div>
             </div>
           </div>

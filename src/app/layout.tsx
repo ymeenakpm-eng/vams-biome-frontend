@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Open_Sans } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const headingFont = Inter({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bodyFont = Open_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
         {/* Header / main nav */}
         <Navbar />
 
@@ -119,6 +119,11 @@ export default function RootLayout({
                   <li>
                     <Link href="/contact" className="hover:text-cyan-300">
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/partners" className="hover:text-cyan-300">
+                      Partners / Affiliate Program
                     </Link>
                   </li>
                 </ul>

@@ -12,6 +12,7 @@ export async function POST(req: Request) {
   try {
     const { base, publishableKey } = env()
     const body = await req.json().catch(() => ({}))
+
     const res = await fetch(`${base}/store/auth`, {
       method: "POST",
       headers: {
@@ -23,7 +24,12 @@ export async function POST(req: Request) {
     })
 
     const text = await res.text()
-    const out = new NextResponse(text, { status: res.status, headers: { "content-type": res.headers.get("content-type") || "application/json" } })
+    const out = new NextResponse(text, {
+      status: res.status,
+      headers: {
+        "content-type": res.headers.get("content-type") || "application/json",
+      },
+    })
     const setCookie = res.headers.get("set-cookie")
     if (setCookie) out.headers.set("set-cookie", setCookie)
     return out

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function DiagnosticsPage() {
   return (
@@ -38,40 +39,134 @@ export default function DiagnosticsPage() {
 
         <section className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* 5 Test Kits Overview */}
-          <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="mb-2 text-lg font-semibold text-slate-900">Gut microbiome test</h2>
-            <p className="text-sm text-slate-600">
-              Diversity scores, key bacteria, and dysbiosis markers to support digestion, energy, and
-              long-term metabolic health.
-            </p>
+          <article className="rounded-2xl bg-white p-6 shadow-sm flex gap-4">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/images/biomemart-kit.jpg"
+                alt="Gut microbiome test kit packaging"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-md object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="mb-2 text-lg font-semibold text-slate-900">GUT HIM – Men&apos;s Microbiome Test Kit</h2>
+              <p className="text-sm text-slate-600">
+                A men-focused at-home microbiome test that analyzes dysbiosis, SCFA-producing
+                microbes, gut barrier integrity, and key markers tied to metabolic and hormonal
+                health. Get personalized insights to optimize digestion, energy, and overall wellness.
+              </p>
+            <Link
+              href="/products/gut-kit"
+              className="mt-3 inline-flex text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+            >
+              View full kit details &gt;
+            </Link>
+            </div>
           </article>
-          <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="mb-2 text-lg font-semibold text-slate-900">Vaginal microbiome test</h2>
-            <p className="text-sm text-slate-600">
-              Track Lactobacillus balance and patterns that may be associated with comfort, recurrent
-              infections, or fertility conversations with your clinician.
-            </p>
+          <article className="rounded-2xl bg-white p-6 shadow-sm flex gap-4">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/images/biomemart-kit.jpg"
+                alt="Women&apos;s gut microbiome test kit packaging"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-md object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="mb-2 text-lg font-semibold text-slate-900">GUT HER – Women&apos;s Microbiome Test Kit</h2>
+              <p className="text-sm text-slate-600">
+                A comprehensive women-specific microbiome test that evaluates dysbiosis,
+                SCFA-producing microbes, gut barrier strength, and gut–metabolic health
+                connections. Receive tailored recommendations to support digestion, hormones,
+                skin, and long-term wellness.
+              </p>
+              <Link
+                href="/products/gut-her"
+                className="mt-3 inline-flex text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+              >
+                View details &gt;
+              </Link>
+            </div>
           </article>
-          <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="mb-2 text-lg font-semibold text-slate-900">Skin microbiome test</h2>
-            <p className="text-sm text-slate-600">
-              Understand barrier health, dryness or breakout-prone profiles, and how your routine may
-              support or stress your skin ecosystem.
-            </p>
+          <article className="rounded-2xl bg-white p-6 shadow-sm flex gap-4">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/images/biomemart-kit.jpg"
+                alt="Vaginal microbiome test kit packaging"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-md object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="mb-2 text-lg font-semibold text-slate-900">VAGI-HER – Vaginal Microbiome Test Kit</h2>
+              <p className="text-sm text-slate-600">
+                An at-home test that assesses Lactobacillus dominance, BV risk, Candida
+                overgrowth, and fertility-linked microbiome markers. Get clear insights into your
+                intimate health and personalized recommendations for balanced, infection-resistant
+                vaginal wellness.
+              </p>
+              <Link
+                href="/products/vagi-her"
+                className="mt-3 inline-flex text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+              >
+                View details &gt;
+              </Link>
+            </div>
           </article>
-          <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="mb-2 text-lg font-semibold text-slate-900">Oral microbiome test</h2>
-            <p className="text-sm text-slate-600">
-              Map bacteria related to gum and tooth health, breath, and links being explored with
-              cardiometabolic outcomes.
-            </p>
+          <article className="rounded-2xl bg-white p-6 shadow-sm flex gap-4">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/images/biomemart-kit.jpg"
+                alt="Skin microbiome test kit packaging"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-md object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="mb-2 text-lg font-semibold text-slate-900">SKIN-HER – Skin Microbiome Test Kit</h2>
+              <p className="text-sm text-slate-600">
+                A powerful at-home test that identifies microbial drivers of acne, eczema, and
+                skin barrier issues. SKIN-HER uncovers your skin&apos;s unique microbiome
+                imbalances and provides personalized, science-backed recommendations for clearer,
+                calmer, healthier skin.
+              </p>
+              <Link
+                href="/products/skin-her"
+                className="mt-3 inline-flex text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+              >
+                View details &gt;
+              </Link>
+            </div>
           </article>
-          <article className="rounded-2xl bg-white p-6 shadow-sm md:col-span-2 lg:col-span-1">
-            <h2 className="mb-2 text-lg font-semibold text-slate-900">Full-body microbiome panel</h2>
-            <p className="text-sm text-slate-600">
-              A unified multi-site panel connecting gut, skin, vaginal, and oral microbiomes in one view
-              for complex cases or research collaborations.
-            </p>
+          <article className="rounded-2xl bg-white p-6 shadow-sm md:col-span-2 lg:col-span-1 flex gap-4">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/images/biomemart-kit.jpg"
+                alt="Gut–Hormone Axis Panel kit packaging"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-md object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="mb-2 text-lg font-semibold text-slate-900">Gut–Hormone Axis Panel</h2>
+              <p className="text-sm text-slate-600">
+                A comprehensive panel that uncovers how your gut microbiome influences hormonal
+                balance. It provides integrative insights into PCOS, estrogen recycling, and
+                gut–endocrine crosstalk, helping you understand symptoms and optimize hormone
+                health with personalized recommendations.
+              </p>
+              <Link
+                href="/products/gut-hormone-axis"
+                className="mt-3 inline-flex text-xs font-semibold text-cyan-700 hover:text-cyan-800"
+              >
+                View details &gt;
+              </Link>
+            </div>
           </article>
         </section>
 
