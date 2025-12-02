@@ -123,7 +123,7 @@ export default function AboutPage() {
                 empowering individuals to take control of their wellness.
               </p>
 
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+              <ul className="mt-4 space-y-2 text-base text-gray-700 leading-relaxed text-justify">
                 <li>
                   <span className="font-semibold">Launch of testing kits.</span> Introduced user-friendly
                   gut bacteria testing kits, making health tracking accessible to everyone.
@@ -148,14 +148,14 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="mt-10 -mx-4 relative lg:mt-0">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md overflow-hidden">
+            <div className="mt-10 -mx-4 relative lg:mt-0 lg:h-full">
+              <div className="relative mx-auto w-full h-full rounded-lg shadow-lg lg:max-w-md overflow-hidden">
                 <Image
-                  src="/images/biomemart-kit.jpg"
+                  src="/images/hero-scientist-bacteria.jpg"
                   alt="VAMS BIOME kit and lab environment"
                   width={600}
                   height={400}
-                  className="h-64 w-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </div>

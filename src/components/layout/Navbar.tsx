@@ -92,7 +92,7 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* Right: contact + account + primary CTA */}
+              {/* Right: contact + account + cart + primary CTA */}
               <div className="ml-auto flex items-center gap-4 lg:gap-5">
                 <Link href="/about" className="text-gray-700 hover:text-primary transition-colors">
                   About Us
@@ -137,6 +137,14 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
+
+                {/* Cart link */}
+                <Link
+                  href="/cart"
+                  className="text-gray-700 hover:text-primary transition-colors"
+                >
+                  Cart
+                </Link>
 
                 {/* Primary CTA */}
                 <Link
@@ -227,6 +235,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               My dashboard
+            </Link>
+            <Link
+              href="/cart"
+              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Cart
             </Link>
             <Link
               href="/login"
