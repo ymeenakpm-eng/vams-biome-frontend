@@ -208,36 +208,6 @@ export default function HomePage() {
           </Link>
         </section>
 
-        {/* BiomeAI preview */}
-        <section className="mb-16 rounded-2xl bg-slate-900 p-6 text-slate-50">
-          <h2 className="text-lg font-semibold">Your microbiome, interpreted by AI.</h2>
-          <p className="mt-2 text-sm text-slate-200 max-w-2xl">
-            BiomeAI transforms raw sequencing data into scores, pathways, and personalized protocols—so you know
-            exactly what to do next.
-          </p>
-          <div className="mt-4 grid gap-3 text-sm md:grid-cols-3">
-            <ul className="space-y-1 text-slate-100/90 text-xs">
-              <li>• Gut Health Index</li>
-              <li>• Microbial diversity and keystone species</li>
-              <li>• SCFA and metabolic pathway predictions</li>
-            </ul>
-            <ul className="space-y-1 text-slate-100/90 text-xs">
-              <li>• Red flag markers for dysbiosis and pathobionts</li>
-              <li>• Symptom-aligned pattern detection</li>
-              <li>• Trends over repeat testing</li>
-            </ul>
-            <ul className="space-y-1 text-slate-100/90 text-xs">
-          <div className="rounded-2xl bg-slate-900 p-6 text-slate-50">
-            <h2 className="text-lg font-semibold">Built with science and security</h2>
-            <ul className="mt-3 space-y-1 text-sm text-slate-200">
-              <li>• Partner labs following ISO and CAP-aligned quality systems</li>
-              <li>• HIPAA / GDPR-conscious data flows and role-based access controls</li>
-              <li>• Encryption in transit and at rest for reports and identifiers</li>
-              <li>• Secure Stripe payments and audited infrastructure on Vercel</li>
-            </ul>
-          </div>
-        </section>
-
         {/* Blog + newsletter preview */}
         <section className="mb-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl bg-white p-6 shadow-sm">
