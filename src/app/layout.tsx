@@ -195,6 +195,29 @@ export default function RootLayout({
                 </p>
               </div>
             </div>
+
+            {/* Global disclaimers */}
+            <div className="mt-4 space-y-1 border-t border-sky-800 pt-3 text-[10px] leading-relaxed text-sky-100/80">
+              <p>
+                Information provided by VAMS BIOME is intended for general education and wellness support. It is
+                not designed or approved to diagnose, treat, cure, or prevent any disease and should never replace
+                guidance from your physician or other qualified healthcare provider.
+              </p>
+              <p>
+                Any supplements, probiotics, or related products recommended alongside your results may be offered
+                through separate subscriptions or purchases and are not included in the price of diagnostic kits
+                unless explicitly stated.
+              </p>
+              <p>
+                Where individual formulations or partner technologies are referenced (for example, improvements in
+                specific markers in early studies), these represent limited data and may not predict your personal
+                outcome.
+              </p>
+              <p className="mt-1">
+                *These statements have not been evaluated by the Food and Drug Administration. VAMS BIOME products
+                are not intended to diagnose, treat, cure, or prevent any disease.
+              </p>
+            </div>
           </div>
         </footer>
       </body>

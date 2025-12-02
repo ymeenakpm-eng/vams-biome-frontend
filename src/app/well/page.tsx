@@ -84,34 +84,34 @@ export default function BiomeWellPage() {
   };
 
   return (
-    <main className="min-h-screen bg-sky-50 pt-24 pb-16">
-      <div className="mx-auto max-w-6xl px-4 space-y-8">
+    <main className="min-h-screen bg-sky-50 pt-28 pb-20">
+      <div className="mx-auto max-w-6xl px-6 space-y-10">
         {/* Intro */}
-        <section className="rounded-2xl bg-white p-6 shadow-sm">
-          <h1 className="text-2xl font-semibold text-slate-900">BiomeWell – Testing kits</h1>
-          <p className="mt-2 text-sm text-slate-700 max-w-3xl">
+        <section className="rounded-2xl bg-white p-8 shadow-sm">
+          <h1 className="text-4xl font-semibold text-slate-900">BiomeWell – Testing kits</h1>
+          <p className="mt-3 text-base text-slate-700 max-w-3xl text-justify">
             Choose a microbiome kit and register your sample. Once processed, your results will
             appear in BiomeAI as a detailed, AI-supported report.
           </p>
         </section>
 
         {/* Kits list + registration form */}
-        <section className="grid gap-6 rounded-2xl bg-white p-6 shadow-sm md:grid-cols-2">
+        <section className="grid gap-8 rounded-2xl bg-white p-8 shadow-sm md:grid-cols-2 text-base">
           {/* Available kits */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Available kits</h2>
-            <p className="mt-1 text-xs text-slate-600">
+            <h2 className="text-2xl font-semibold text-slate-900">Available kits</h2>
+            <p className="mt-2 text-sm text-slate-600">
               Phase 1 kits are hard-coded for demo. In production this will connect to your LIMS.
             </p>
 
-            {loadingKits && <p className="mt-3 text-sm text-slate-700">Loading kits…</p>}
-            {kitsError && <p className="mt-3 text-sm text-red-600">{kitsError}</p>}
+            {loadingKits && <p className="mt-3 text-base text-slate-700">Loading kits…</p>}
+            {kitsError && <p className="mt-3 text-base text-red-600">{kitsError}</p>}
             {!loadingKits && !kitsError && kits.length === 0 && (
-              <p className="mt-3 text-sm text-slate-700">No kits available yet.</p>
+              <p className="mt-3 text-base text-slate-700">No kits available yet.</p>
             )}
 
             {kits.length > 0 && (
-              <ul className="mt-4 space-y-3 text-sm">
+              <ul className="mt-4 space-y-4 text-base">
                 {kits.map((kit) => (
                   <li
                     key={kit.id}
@@ -119,8 +119,8 @@ export default function BiomeWellPage() {
                   >
                     <div className="flex items-baseline justify-between gap-2">
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">{kit.name}</p>
-                        <p className="mt-1 text-xs text-slate-700">{kit.description}</p>
+                        <p className="text-base font-semibold text-slate-900">{kit.name}</p>
+                        <p className="mt-1 text-sm text-slate-700 text-justify">{kit.description}</p>
                       </div>
                       <div className="text-right text-xs text-slate-700">
                         <p className="font-semibold">₹{kit.price}</p>
@@ -135,33 +135,33 @@ export default function BiomeWellPage() {
 
           {/* Register a sample */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Register a sample</h2>
-            <p className="mt-1 text-xs text-slate-600">
+            <h2 className="text-2xl font-semibold text-slate-900">Register a sample</h2>
+            <p className="mt-2 text-sm text-slate-600 text-justify">
               Use the sample ID printed on the kit label. This links your physical sample to the
               digital report.
             </p>
 
-            <form onSubmit={handleRegisterSample} className="mt-4 space-y-3 text-sm">
+            <form onSubmit={handleRegisterSample} className="mt-5 space-y-4 text-base">
               <div>
-                <label className="block text-sm font-medium text-slate-800">
+                <label className="block text-base font-medium text-slate-800">
                   Sample ID
                   <input
                     type="text"
                     value={sampleId}
                     onChange={(e) => setSampleId(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    className="mt-1 w-full rounded-md border border-slate-200 px-4 py-3 text-base"
                     placeholder="e.g. GUT-001, PILOT-123"
                   />
                 </label>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-800">
+                <label className="block text-base font-medium text-slate-800">
                   Kit
                   <select
                     value={selectedKitId}
                     onChange={(e) => setSelectedKitId(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm bg-white"
+                    className="mt-1 w-full rounded-md border border-slate-200 px-4 py-3 text-base bg-white"
                   >
                     {kits.map((kit) => (
                       <option key={kit.id} value={kit.id}>
@@ -175,15 +175,15 @@ export default function BiomeWellPage() {
               <button
                 type="submit"
                 disabled={registering}
-                className="w-full rounded-full bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-600 disabled:opacity-60"
+                className="w-full rounded-full bg-cyan-500 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-cyan-600 disabled:opacity-60"
               >
                 {registering ? "Registering…" : "Register sample"}
               </button>
 
-              {registerError && <p className="text-xs text-red-600">{registerError}</p>}
-              {registerMessage && <p className="text-xs text-emerald-700">{registerMessage}</p>}
+              {registerError && <p className="text-sm text-red-600">{registerError}</p>}
+              {registerMessage && <p className="text-sm text-emerald-700">{registerMessage}</p>}
 
-              <p className="mt-3 text-[11px] text-slate-600">
+              <p className="mt-3 text-xs text-slate-600 text-justify">
                 After the lab finishes processing, you can view this sample in BiomeAI under
                 <span className="font-semibold"> "View my reports"</span> using the same sample ID.
               </p>

@@ -50,19 +50,34 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gray-900">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gray-900 opacity-75"></div>
+      <div className="relative overflow-hidden bg-slate-950">
+        <div className="pointer-events-none absolute inset-0">
+          {/* Deep space-like gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-900/90 to-sky-900" />
+          {/* Soft radial glow behind image */}
+          <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-emerald-400/20 blur-3xl" />
+          <div className="absolute left-0 bottom-0 h-64 w-64 rounded-full bg-sky-500/15 blur-3xl" />
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            About VAMS BIOME
-          </h1>
-          <p className="mt-6 text-xl text-gray-300 max-w-3xl">
-            Building an AI-native microbiome ecosystem that connects diagnostics, insights, products,
-            and care for people and partners across India, Australia, and the global research
-            network.
-          </p>
+        <div className="relative mx-auto flex min-h-[calc(100vh-96px)] max-w-7xl flex-col gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:flex-row lg:items-center lg:px-8">
+          <div className="flex-1">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              About VAMS BIOME
+            </h1>
+            <p className="mt-6 text-xl text-gray-300 max-w-3xl text-justify">
+              Building an AI-native microbiome ecosystem that connects diagnostics, insights, products,
+              and care for people and partners across India, Australia, and the global research
+              network.
+            </p>
+          </div>
+          <div className="relative hidden h-64 flex-1 overflow-hidden rounded-3xl bg-slate-900/80 ring-1 ring-white/10 md:block lg:h-80">
+            <Image
+              src="/images/lab-hero.jpg"
+              alt="VAMS BIOME lab and research environment"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </div>
 
@@ -74,7 +89,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
                 About VAMS BIOME
               </h2>
-              <p className="mt-4 text-sm text-gray-700 leading-relaxed text-justify">
+              <p className="mt-4 text-base text-gray-700 leading-relaxed text-justify">
                 VAMS BIOME is a next-generation biotech and wellness company positioned at the
                 intersection of sustainable aquaculture and personalized human health. Our
                 foundation is in the high-demand aquaculture probiotics market, with a clear
@@ -86,14 +101,14 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-6 text-base font-semibold text-gray-900">Mission</h3>
-              <p className="mt-2 text-sm text-gray-700 leading-relaxed text-justify">
+              <p className="mt-2 text-base text-gray-700 leading-relaxed text-justify">
                 To decode the human microbiome and deliver personalized, actionable health
                 insights and sustainable probiotic innovations that transform both individual
                 wellness and global food production.
               </p>
 
               <h3 className="mt-6 text-base font-semibold text-gray-900">Our commitment to gut health</h3>
-              <p className="mt-2 text-sm text-gray-700 leading-relaxed text-justify">
+              <p className="mt-2 text-base text-gray-700 leading-relaxed text-justify">
                 At our core, we are dedicated to enhancing gut health through cutting-edge
                 research and personalized solutions. Our mission is to empower individuals with
                 the tools and knowledge necessary to understand their gut microbiome better and
@@ -101,7 +116,7 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-6 text-base font-semibold text-gray-900">Empowering gut health: our journey</h3>
-              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+              <p className="mt-2 text-base text-gray-700 leading-relaxed text-justify">
                 Since our founding, we have dedicated ourselves to revolutionizing gut health.
                 Our journey highlights key milestones in our mission to detect and treat gut
                 bacteria effectively. Each step represents progress in advancing science and
@@ -156,7 +171,7 @@ export default function AboutPage() {
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Our Core Values
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto text-justify">
               Guiding principles that define who we are and how we work
             </p>
           </div>
@@ -168,7 +183,7 @@ export default function AboutPage() {
                   <FaFlask className="h-6 w-6" />
                 </div>
                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Scientific Excellence</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
+                <p className="mt-2 ml-16 text-base text-gray-500 text-justify">
                   We are committed to the highest standards of scientific rigor, integrity, and innovation in all our research and services.
                 </p>
               </div>
@@ -178,7 +193,7 @@ export default function AboutPage() {
                   <FaDna className="h-6 w-6" />
                 </div>
                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Cutting-Edge Technology</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
+                <p className="mt-2 ml-16 text-base text-gray-500 text-justify">
                   We leverage the latest technologies and methodologies to deliver accurate, reliable, and actionable insights.
                 </p>
               </div>
@@ -188,7 +203,7 @@ export default function AboutPage() {
                   <FaMicroscope className="h-6 w-6" />
                 </div>
                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Collaboration</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
+                <p className="mt-2 ml-16 text-base text-gray-500 text-justify">
                   We work closely with clinicians, labs, universities, and health systems to co-create
                   protocols, research programmes, and real-world evidence.
                 </p>
@@ -199,7 +214,7 @@ export default function AboutPage() {
                   <FaChartLine className="h-6 w-6" />
                 </div>
                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Impact</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">
+                <p className="mt-2 ml-16 text-base text-gray-500 text-justify">
                   We measure success by lives improved, not just experiments completedfrom gut and
                   womens health outcomes to sustainable aquaculture programmes.
                 </p>
