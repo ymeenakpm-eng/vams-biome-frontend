@@ -10,11 +10,16 @@ export default function HomePage() {
       {/* Hero (full-width) */}
       <section className="relative mb-10 overflow-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0">
-          {/* Soft teal/blue hero gradient inspired by Viome */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-sky-900 to-cyan-700" />
-          {/* Glows */}
-          <div className="absolute -right-24 top-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
-          <div className="absolute left-0 bottom-0 h-64 w-64 rounded-full bg-sky-400/15 blur-3xl" />
+          {/* Galaxy background image */}
+          <Image
+            src="/images/hero-galaxy11.jpg"
+            alt="Galaxy universe background"
+            fill
+            className="object-cover object-[center_top]"
+            priority
+          />
+          {/* Dark overlay to keep text readable */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-900/70" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-0 pt-8 pb-4 md:px-2">
@@ -27,7 +32,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="flex min-h-[calc(100vh-120px)] flex-col gap-8 md:flex-row md:items-center">
+          <div className="flex min-h-[420px] md:min-h-[460px] flex-col gap-8 md:flex-row md:items-center">
             <div className="flex-1 md:-ml-20 lg:-ml-24">
 
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
@@ -41,61 +46,51 @@ export default function HomePage() {
                 discover what&apos;s really happening inside—and move into targeted probiotics and
                 protocols with confidence.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap items-center gap-3 md:gap-4">
                 <Link
                   href="/well"
-                  className="rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
+                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
                 >
                   Explore kits
                 </Link>
                 <Link
                   href="/ai/report"
-                  className="rounded-full border border-cyan-200/60 px-5 py-2.5 text-sm font-semibold text-cyan-100 hover:bg-cyan-900/40"
+                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
                 >
                   View report demo
                 </Link>
                 <Link
                   href="/campaign/gut"
-                  className="text-xs font-semibold text-cyan-100 hover:text-cyan-50"
+                  className="text-sm font-semibold text-cyan-100 hover:text-cyan-50 md:ml-2"
                 >
                   Is your gut holding you back?
                 </Link>
               </div>
             </div>
 
-            <div className="flex-1 space-y-6 mt-8 md:mt-0 md:pl-20 lg:pl-28">
-              <div className="rounded-3xl bg-slate-900/80 p-6 shadow-sm ring-1 ring-white/10">
-                <h2 className="text-base font-semibold uppercase tracking-wide text-sky-200">
+            <div className="flex-1 space-y-8 mt-8 md:mt-0 md:pl-20 lg:pl-28">
+              <div className="rounded-3xl bg-slate-900/80 p-10 lg:p-12 shadow-sm ring-1 ring-white/10">
+                <h2 className="text-2xl font-semibold uppercase tracking-wide text-sky-200">
                   5 microbiome test kits
                 </h2>
-                <ul className="mt-3 grid gap-2 text-base text-sky-100/90 sm:grid-cols-2">
-                  <li>• Gut microbiome test</li>
-                  <li>• Vaginal microbiome test</li>
-                  <li>• Skin microbiome test</li>
-                  <li>• Oral microbiome test</li>
-                  <li className="sm:col-span-2">• Full-body microbiome panel</li>
+                <ul className="mt-4 grid gap-3 text-xl text-sky-100/90 sm:grid-cols-2">
+                  <li className="whitespace-nowrap">• Gut microbiome test</li>
+                  <li className="whitespace-nowrap">• Vaginal microbiome test</li>
+                  <li className="whitespace-nowrap">• Skin microbiome test</li>
+                  <li className="whitespace-nowrap">• Oral microbiome test</li>
+                  <li className="sm:col-span-2 whitespace-nowrap">• Full-body microbiome panel</li>
                 </ul>
               </div>
 
-              <div className="rounded-3xl bg-sky-900/80 p-4 text-sky-50 ring-1 ring-white/10">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-sky-200">
+              <div className="rounded-3xl bg-sky-900/80 p-8 lg:p-10 text-sky-50 ring-1 ring-white/10">
+                <h3 className="text-2xl font-semibold uppercase tracking-wide text-sky-200">
                   Probiotic &amp; protocol highlights
                 </h3>
-                <ul className="mt-2 flex flex-wrap gap-x-8 gap-y-1.5 text-sm text-sky-50/90">
+                <ul className="mt-4 flex flex-wrap gap-x-10 gap-y-2 text-xl text-sky-50/90">
                   <li className="whitespace-nowrap">• Targeted gut reset formulations</li>
                   <li className="whitespace-nowrap">• Women&apos;s synbiotic stacks</li>
                   <li className="whitespace-nowrap">• Skin &amp; oral microbiome care</li>
                 </ul>
-              </div>
-
-              <div className="relative hidden h-64 w-full overflow-hidden rounded-3xl ring-1 ring-white/10 md:block lg:h-80">
-                <Image
-                  src="/images/lab-hero.jpg"
-                  alt="VAMS BIOME lab and testing kits"
-                  fill
-                  className="object-cover"
-                  priority
-                />
               </div>
             </div>
           </div>
