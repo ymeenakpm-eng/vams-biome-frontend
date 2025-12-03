@@ -10,7 +10,7 @@ const tests = [
     color: "from-sky-500 to-emerald-500",
     details: "Stool sample – best for digestion, bloating, weight, skin, and metabolism.",
     cta: "Explore Gut Tests",
-    image: "/test/test-kit.png",
+    image: "/images/lab-hero.jpg",
   },
   {
     id: "vaginal",
@@ -20,7 +20,7 @@ const tests = [
     color: "from-pink-500 to-rose-500",
     details: "Vaginal swab – best for BV, pH balance, fertility, and menopause.",
     cta: "Explore Vaginal Tests",
-    image: "/images/tests/vaginal-kit.png",
+    image: "/images/hero-galaxy10.jpg",
   },
   {
     id: "oral",
@@ -30,7 +30,7 @@ const tests = [
     color: "from-indigo-500 to-sky-500",
     details: "Oral swab – best for gum health, bad breath, and the oral–gut axis.",
     cta: "Explore Oral Tests",
-    image: "/images/tests/oral-kit.png",
+    image: "/images/hero-galaxy11.jpg",
   },
   {
     id: "skin",
@@ -40,7 +40,7 @@ const tests = [
     color: "from-amber-500 to-orange-500",
     details: "Skin swab – best for acne, barrier function, and fungal balance.",
     cta: "Explore Skin Tests",
-    image: "/images/tests/skin-kit.png",
+    image: "/images/hero-galaxy12.jpg",
   },
 ];
 
