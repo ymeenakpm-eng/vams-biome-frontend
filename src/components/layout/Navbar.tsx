@@ -73,7 +73,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block flex-1">
-            <div className="flex items-center text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-sm md:text-base lg:text-lg">
               {/* Left: logo + main nav tabs */}
               <div className="flex items-center gap-5 lg:gap-7">
                 <Link href="/" className="flex items-center gap-3">
