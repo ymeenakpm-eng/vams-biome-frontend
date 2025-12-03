@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { listStoreProducts } from "@/lib/medusa";
+import { AddToCartButton } from "./AddToCartButton";
 
 export default async function ProductsPage() {
   let medusaProducts: any[] = [];
@@ -110,12 +111,28 @@ export default async function ProductsPage() {
           </p>
           {medusaProducts.length > 0 ? (
             <ul className="space-y-2 text-base text-slate-800">
-              {medusaProducts.slice(0, 4).map((p) => (
-                <li key={p.id} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>{p.title}</span>
-                </li>
-              ))}
+              {medusaProducts.slice(0, 4).map((p) => {
+                const primaryVariant = p.variants?.[0];
+                if (!primaryVariant) return null;
+
+                return (
+                  <li
+                    key={p.id}
+                    className="flex items-center justify-between gap-4"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <Link
+                        href={`/products/${p.id}`}
+                        className="text-slate-900 hover:text-emerald-700"
+                      >
+                        {p.title}
+                      </Link>
+                    </div>
+                    <AddToCartButton variantId={primaryVariant.id} />
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <div className="rounded-xl border border-dashed border-emerald-200 bg-emerald-50/40 p-5 text-base text-slate-700">
