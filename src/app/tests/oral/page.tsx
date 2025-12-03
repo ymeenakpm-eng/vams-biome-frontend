@@ -297,6 +297,57 @@ export default function OralTestPage() {
           </p>
         </header>
 
+        <section className="mb-8 rounded-2xl bg-white p-6 shadow-sm text-base leading-relaxed text-slate-700">
+          <h2 className="text-2xl font-semibold text-slate-900">What you'll discover</h2>
+          <p className="mt-2 text-lg">
+            OralX helps you understand how your oral microbiome may be influencing gum health, bad
+            breath, enamel risk, and systemic connections to the heart and gut, using a simple
+            at-home swab.
+          </p>
+
+          <h3 className="mt-4 text-xl font-semibold text-slate-900">You'll receive</h3>
+          <p className="mt-2 text-base text-slate-600">
+            Results are presented as clear scores and ranges, so you and your clinician or dentist
+            can see where you sit today and how you change over time.
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+            <li>Core ecology, pathogen/dysbiosis, and functional oral ecology panels</li>
+            <li>Condition-aligned scores across gum health, enamel risk, breath, and oral–systemic axes</li>
+            <li>AI-assisted recommendations you can discuss with your dental or medical team</li>
+            <li>Options to add focused Insight Packs like Gum Health or Oral–Gut Axis</li>
+          </ul>
+
+          <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+            <h3 className="text-lg font-semibold text-slate-900">What's included</h3>
+            <div className="mt-4 space-y-3 text-base">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                  1
+                </div>
+                <p>OralX test kit with free two-way shipping and easy at-home swab collection.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                  2
+                </div>
+                <p>Detailed oral microbiome report with gum health, enamel, and oral–gut scores.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                  3
+                </div>
+                <p>Nutrition and lifestyle guidance aligned to your oral signatures.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                  4
+                </div>
+                <p>Next-step and product recommendations to discuss with your clinician or dentist.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           {/* Left: hero image + configuration steps */}
           <div className="space-y-8">

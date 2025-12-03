@@ -354,6 +354,36 @@ export default function SkinTestPage() {
               <li>Signals you can use with your dermatologist or care team</li>
               <li>Options to add focused Insight Packs like Acne or Barrier Function</li>
             </ul>
+
+            <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+              <h3 className="text-lg font-semibold text-slate-900">What's included</h3>
+              <div className="mt-4 space-y-3 text-base">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    1
+                  </div>
+                  <p>SkinX swab kit with free two-way shipping and simple zone-by-zone collection.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    2
+                  </div>
+                  <p>Detailed skin microbiome report with acne, barrier, and sensitivity scores.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    3
+                  </div>
+                  <p>Nutrition, skincare, and lifestyle guidance aligned to your skin signatures.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    4
+                  </div>
+                  <p>Next-step and product recommendations to discuss with your dermatologist or care team.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
