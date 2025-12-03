@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
+import { getStoredCartId } from "@/lib/cart-client";
+import { getCart } from "@/lib/medusa-cart";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +24,28 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
+
+  // Load current cart item count from Medusa, if a cart exists
+  useEffect(() => {
+    const id = getStoredCartId();
+    if (!id) return;
+
+    const loadCartCount = async () => {
+      try {
+        const cart = await getCart(id);
+        const items = cart?.items ?? [];
+        const totalQty = items.reduce(
+          (sum: number, item: any) => sum + (item.quantity ?? 0),
+          0
+        );
+        setCartItemCount(totalQty);
+      } catch {
+        // ignore cart errors in navbar badge
+      }
+    };
+
+    void loadCartCount();
+  }, []);
 
   return (
     <nav
@@ -128,7 +153,7 @@ export default function Navbar() {
                         Register
                       </Link>
                       <Link
-                        href="/admin"
+                        href="/dashboard"
                         className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50"
                         onClick={() => setAccountOpen(false)}
                       >
@@ -138,12 +163,38 @@ export default function Navbar() {
                   )}
                 </div>
 
-                {/* Cart link */}
+                {/* Cart link with item count, styled like Amazon-style cart */}
                 <Link
                   href="/cart"
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  className="relative flex items-center gap-1 rounded-md px-2 py-1 text-gray-700 hover:text-primary transition-colors"
                 >
-                  Cart
+                  <span className="relative inline-flex items-center justify-center">
+                    {/* Count just above cart icon, in VAMS BIOME green */}
+                    {cartItemCount > 0 && (
+                      <span className="absolute -top-2 text-sm font-extrabold text-emerald-500">
+                        {cartItemCount}
+                      </span>
+                    )}
+
+                    {/* Larger cart outline icon */}
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-10 w-12 text-slate-800"
+                    >
+                      <path
+                        d="M4 5h3l2 9h9l2-6H9"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <circle cx="11" cy="19" r="1.8" fill="currentColor" />
+                      <circle cx="18" cy="19" r="1.8" fill="currentColor" />
+                    </svg>
+                  </span>
+                  <span className="-ml-2 text-sm font-semibold">Cart</span>
                 </Link>
 
                 {/* Primary CTA */}
@@ -258,7 +309,7 @@ export default function Navbar() {
               Register
             </Link>
             <Link
-              href="/admin"
+              href="/dashboard"
               className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >

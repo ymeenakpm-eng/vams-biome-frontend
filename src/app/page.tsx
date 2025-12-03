@@ -114,28 +114,28 @@ export default function HomePage() {
         <section className="mb-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4 text-lg">
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h2 className="text-3xl font-semibold text-slate-900">Precision diagnostics</h2>
-            <p className="mt-2 text-lg text-slate-700 text-justify">
+            <p className="mt-2 text-lg text-slate-700">
               Clinical-grade microbiome test kits for gut, vaginal, skin, and oral ecosystems. Science-validated and
               designed for easy at-home collection.
             </p>
           </div>
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h2 className="text-3xl font-semibold text-slate-900">AI-powered insights</h2>
-            <p className="mt-2 text-lg text-slate-700 text-justify">
-              Our AI engine connects sequencing data, lifestyle inputs, and health markers to deliver personalized diet,
-              supplement, and lifestyle protocols.
+            <p className="mt-2 text-lg text-slate-700">
+              Our AI engine connects sequencing data, lifestyle inputs, and health markers to deliver personalized
+              diet, supplement, and lifestyle protocols.
             </p>
           </div>
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h2 className="text-3xl font-semibold text-slate-900">Therapeutic marketplace</h2>
-            <p className="mt-2 text-lg text-slate-700 text-justify">
-              Shop microbiome-friendly probiotics, synbiotics, women&apos;s health solutions, and functional foods—curated
+            <p className="mt-2 text-lg text-slate-700">
+              Shop microbiome-friendly probiotics, synbiotics, women's health solutions, and functional foods—curated
               for efficacy and safety.
             </p>
           </div>
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <h2 className="text-3xl font-semibold text-slate-900">Science, community, support</h2>
-            <p className="mt-2 text-lg text-slate-700 text-justify">
+            <p className="mt-2 text-lg text-slate-700">
               Learn from research, join our wellness community, and stay supported throughout your microbiome journey
               with clinicians and coaches.
             </p>
@@ -399,7 +399,10 @@ export default function HomePage() {
               <p className="text-slate-700 text-sm">
                 CMS, partner dashboards, and analytics for labs, brands, and clinicians.
               </p>
-              <Link href="/admin" className="text-cyan-700 text-lg font-semibold hover:text-cyan-800">
+              <Link
+                href="/dashboard"
+                className="text-cyan-700 text-lg font-semibold hover:text-cyan-800"
+              >
                 Open admin &rarr;
               </Link>
             </div>
