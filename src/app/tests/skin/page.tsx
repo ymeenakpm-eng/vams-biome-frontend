@@ -306,9 +306,9 @@ export default function SkinTestPage() {
         </header>
 
         {/* Hero split: large kit image + key copy */}
-        <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <section className="mb-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
-            <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-slate-100">
+            <div className="relative h-[26rem] w-full overflow-hidden rounded-2xl bg-slate-100">
               <Image
                 src={heroImages[activeHeroImageIndex]}
                 alt="Skin Microbiome Test kit"
@@ -325,7 +325,7 @@ export default function SkinTestPage() {
                     key={src + index}
                     type="button"
                     onClick={() => setActiveHeroImageIndex(index)}
-                    className={`relative h-20 w-28 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                    className={`relative h-24 w-32 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                       isActive ? "ring-2 ring-emerald-500" : "ring-0"
                     }`}
                   >

@@ -297,7 +297,7 @@ export default function OralTestPage() {
           </p>
         </header>
 
-        <section className="mb-8 rounded-2xl bg-white p-6 shadow-sm text-base leading-relaxed text-slate-700">
+        <section className="mb-4 rounded-2xl bg-white p-6 shadow-sm text-base leading-relaxed text-slate-700">
           <h2 className="text-2xl font-semibold text-slate-900">What you'll discover</h2>
           <p className="mt-2 text-lg">
             OralX helps you understand how your oral microbiome may be influencing gum health, bad
@@ -352,7 +352,7 @@ export default function OralTestPage() {
           {/* Left: hero image + configuration steps */}
           <div className="space-y-8">
             <section className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
-              <div className="relative h-72 w-full overflow-hidden rounded-xl bg-slate-100">
+              <div className="relative h-96 w-full overflow-hidden rounded-xl bg-slate-100">
                 <Image
                   src={heroImages[activeHeroImageIndex]}
                   alt="Oral Microbiome Test kit"
@@ -369,7 +369,7 @@ export default function OralTestPage() {
                       key={src + index}
                       type="button"
                       onClick={() => setActiveHeroImageIndex(index)}
-                      className={`relative h-20 w-28 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                      className={`relative h-24 w-32 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                         isActive ? "ring-2 ring-emerald-500" : "ring-0"
                       }`}
                     >

@@ -316,8 +316,8 @@ export default function VaginalTestPage() {
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           {/* Left: hero image + thumbnails */}
-          <div className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
-            <div className="relative h-[28rem] w-full overflow-hidden rounded-2xl bg-slate-100">
+          <div className="rounded-2xl bg-white px-6 pt-6 pb-0 shadow-sm">
+            <div className="relative h-[38rem] w-full overflow-hidden rounded-2xl bg-slate-100">
               <Image
                 src={heroImages[activeHeroImageIndex]}
                 alt="Vaginal Microbiome Test kit"
@@ -334,7 +334,7 @@ export default function VaginalTestPage() {
                     key={src + index}
                     type="button"
                     onClick={() => setActiveHeroImageIndex(index)}
-                    className={`relative h-24 w-32 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                    className={`relative h-32 w-44 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                       isActive ? "ring-2 ring-emerald-500" : "ring-0"
                     }`}
                   >
@@ -404,7 +404,7 @@ export default function VaginalTestPage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           {/* Left: configuration steps */}
           <div className="space-y-8">
             {/* Core panels */}
