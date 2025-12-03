@@ -297,94 +297,105 @@ export default function OralTestPage() {
           </p>
         </header>
 
-        <section className="mb-4 rounded-2xl bg-white p-6 shadow-sm text-base leading-relaxed text-slate-700">
-          <h2 className="text-2xl font-semibold text-slate-900">What you'll discover</h2>
-          <p className="mt-2 text-lg">
-            OralX helps you understand how your oral microbiome may be influencing gum health, bad
-            breath, enamel risk, and systemic connections to the heart and gut, using a simple
-            at-home swab.
-          </p>
+        {/* Hero split: image + key copy, like Gut/Vaginal/Skin */}
+        <section className="mb-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          {/* Left: hero image + thumbnails */}
+          <div className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
+            <div className="relative h-[34rem] w-full overflow-hidden rounded-xl bg-slate-100">
+              <Image
+                src={heroImages[activeHeroImageIndex]}
+                alt="Oral Microbiome Test kit"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
 
-          <h3 className="mt-4 text-xl font-semibold text-slate-900">You'll receive</h3>
-          <p className="mt-2 text-base text-slate-600">
-            Results are presented as clear scores and ranges, so you and your clinician or dentist
-            can see where you sit today and how you change over time.
-          </p>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
-            <li>Core ecology, pathogen/dysbiosis, and functional oral ecology panels</li>
-            <li>Condition-aligned scores across gum health, enamel risk, breath, and oral–systemic axes</li>
-            <li>AI-assisted recommendations you can discuss with your dental or medical team</li>
-            <li>Options to add focused Insight Packs like Gum Health or Oral–Gut Axis</li>
-          </ul>
+            <div className="mt-2 flex gap-4">
+              {heroImages.map((src, index) => {
+                const isActive = index === activeHeroImageIndex;
+                return (
+                  <button
+                    key={src + index}
+                    type="button"
+                    onClick={() => setActiveHeroImageIndex(index)}
+                    className={`relative h-28 w-40 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                      isActive ? "ring-2 ring-emerald-500" : "ring-0"
+                    }`}
+                  >
+                    <Image
+                      src={src}
+                      alt="Oral Microbiome Test thumbnail"
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-          <div className="mt-5 rounded-2xl bg-slate-50 p-4">
-            <h3 className="text-lg font-semibold text-slate-900">What's included</h3>
-            <div className="mt-4 space-y-3 text-base">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
-                  1
+          {/* Right: hero copy (what you'll discover) */}
+          <div className="space-y-4 rounded-2xl bg-white p-6 shadow-sm text-base leading-relaxed text-slate-700">
+            <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+              OralX Oral Microbiome Test
+            </p>
+            <h2 className="text-3xl font-semibold text-slate-900">What you'll discover</h2>
+            <p className="text-lg">
+              OralX helps you understand how your oral microbiome may be influencing gum health, bad
+              breath, enamel risk, and systemic connections to the heart and gut, using a simple
+              at-home swab.
+            </p>
+
+            <h3 className="mt-4 text-2xl font-semibold text-slate-900">You'll receive</h3>
+            <p className="text-base text-slate-600">
+              Results are presented as clear scores and ranges, so you and your clinician or dentist
+              can see where you sit today and how you change over time.
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+              <li>Core ecology, pathogen/dysbiosis, and functional oral ecology panels</li>
+              <li>
+                Condition-aligned scores across gum health, enamel risk, breath, and oral–systemic
+                axes
+              </li>
+              <li>AI-assisted recommendations you can discuss with your dental or medical team</li>
+              <li>Options to add focused Insight Packs like Gum Health or Oral–Gut Axis</li>
+            </ul>
+
+            <div className="mt-6 rounded-2xl bg-slate-50 p-4">
+              <h3 className="text-xl font-semibold text-slate-900">What's included</h3>
+              <div className="mt-4 space-y-3 text-base">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    1
+                  </div>
+                  <p>OralX test kit with free two-way shipping and easy at-home swab collection.</p>
                 </div>
-                <p>OralX test kit with free two-way shipping and easy at-home swab collection.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
-                  2
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    2
+                  </div>
+                  <p>Detailed oral microbiome report with gum health, enamel, and oral–gut scores.</p>
                 </div>
-                <p>Detailed oral microbiome report with gum health, enamel, and oral–gut scores.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
-                  3
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    3
+                  </div>
+                  <p>Nutrition and lifestyle guidance aligned to your oral signatures.</p>
                 </div>
-                <p>Nutrition and lifestyle guidance aligned to your oral signatures.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
-                  4
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                    4
+                  </div>
+                  <p>Next-step and product recommendations to discuss with your clinician or dentist.</p>
                 </div>
-                <p>Next-step and product recommendations to discuss with your clinician or dentist.</p>
               </div>
             </div>
           </div>
         </section>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          {/* Left: hero image + configuration steps */}
+          {/* Left: configuration steps */}
           <div className="space-y-8">
-            <section className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
-              <div className="relative h-96 w-full overflow-hidden rounded-xl bg-slate-100">
-                <Image
-                  src={heroImages[activeHeroImageIndex]}
-                  alt="Oral Microbiome Test kit"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
-              <div className="mt-2 flex gap-4">
-                {heroImages.map((src, index) => {
-                  const isActive = index === activeHeroImageIndex;
-                  return (
-                    <button
-                      key={src + index}
-                      type="button"
-                      onClick={() => setActiveHeroImageIndex(index)}
-                      className={`relative h-24 w-32 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                        isActive ? "ring-2 ring-emerald-500" : "ring-0"
-                      }`}
-                    >
-                      <Image
-                        src={src}
-                        alt="Oral Microbiome Test thumbnail"
-                        fill
-                        className="object-cover object-center"
-                      />
-                    </button>
-                  );
-                })}
-              </div>
-            </section>
-
             {/* Core panels */}
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-semibold text-slate-900">Core panels included</h2>
