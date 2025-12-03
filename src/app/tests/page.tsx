@@ -10,7 +10,7 @@ const tests = [
     color: "from-sky-500 to-emerald-500",
     details: "Stool sample – best for digestion, bloating, weight, skin, and metabolism.",
     cta: "Explore Gut Tests",
-    image: "/images/lab-hero.jpg",
+    image: "/test/test-kit.png",
   },
   {
     id: "vaginal",
