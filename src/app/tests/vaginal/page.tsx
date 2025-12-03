@@ -310,7 +310,7 @@ export default function VaginalTestPage() {
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <div className="relative h-[28rem] w-full overflow-hidden rounded-2xl bg-slate-100">
               <Image
-                src="/images/tests/vaginal-kit.png"
+                src="/test/test-kit.png"
                 alt="Vaginal Microbiome Test kit"
                 fill
                 className="object-contain object-center"

@@ -301,7 +301,7 @@ export default function SkinTestPage() {
           <div className="rounded-2xl bg-white p-6 shadow-sm">
             <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-slate-100">
               <Image
-                src="/images/tests/skin-kit.png"
+                src="/test/test-kit.png"
                 alt="Skin Microbiome Test kit"
                 fill
                 className="object-cover object-center"

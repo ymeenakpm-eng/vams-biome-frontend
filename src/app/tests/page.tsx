@@ -20,7 +20,7 @@ const tests = [
     color: "from-pink-500 to-rose-500",
     details: "Vaginal swab – best for BV, pH balance, fertility, and menopause.",
     cta: "Explore Vaginal Tests",
-    image: "/images/hero-galaxy10.jpg",
+    image: "/test/test-kit.png",
   },
   {
     id: "oral",
@@ -30,7 +30,7 @@ const tests = [
     color: "from-indigo-500 to-sky-500",
     details: "Oral swab – best for gum health, bad breath, and the oral–gut axis.",
     cta: "Explore Oral Tests",
-    image: "/images/hero-galaxy11.jpg",
+    image: "/test/test-kit.png",
   },
   {
     id: "skin",
@@ -40,7 +40,7 @@ const tests = [
     color: "from-amber-500 to-orange-500",
     details: "Skin swab – best for acne, barrier function, and fungal balance.",
     cta: "Explore Skin Tests",
-    image: "/images/hero-galaxy12.jpg",
+    image: "/test/test-kit.png",
   },
 ];
 

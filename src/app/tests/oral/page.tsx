@@ -294,7 +294,7 @@ export default function OralTestPage() {
             <section className="rounded-2xl bg-white p-6 shadow-sm">
               <div className="relative h-72 w-full overflow-hidden rounded-xl bg-slate-100">
                 <Image
-                  src="/images/tests/oral-kit.png"
+                  src="/test/test-kit.png"
                   alt="Oral Microbiome Test kit"
                   fill
                   className="object-cover object-center"
