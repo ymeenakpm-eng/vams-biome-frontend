@@ -24,6 +24,14 @@ const corePanels = [
   },
 ];
 
+const heroImages = [
+  "/test/test-kit.png",
+  "/test/test-kit.png",
+  "/test/test-kit.png",
+  "/test/test-kit.png",
+  "/test/test-kit.png",
+];
+
 const insightPacks = [
   {
     id: "acne",
@@ -123,7 +131,8 @@ export default function SkinTestPage() {
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
   const [cartId, setCartId] = useState<string | null>(null);
   const [configTotal, setConfigTotal] = useState<number | null>(null);
-   const [allKitsTotal, setAllKitsTotal] = useState<number | null>(null);
+  const [allKitsTotal, setAllKitsTotal] = useState<number | null>(null);
+  const [activeHeroImageIndex, setActiveHeroImageIndex] = useState(0);
 
   const recomputeAllKitsTotalFromStorage = () => {
     try {
@@ -298,14 +307,37 @@ export default function SkinTestPage() {
 
         {/* Hero split: large kit image + key copy */}
         <section className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <div className="rounded-2xl bg-white p-6 shadow-sm">
+          <div className="rounded-2xl bg-white px-6 pt-6 pb-1 shadow-sm">
             <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-slate-100">
               <Image
-                src="/test/test-kit.png"
+                src={heroImages[activeHeroImageIndex]}
                 alt="Skin Microbiome Test kit"
                 fill
                 className="object-cover object-center"
               />
+            </div>
+
+            <div className="mt-2 flex gap-4">
+              {heroImages.map((src, index) => {
+                const isActive = index === activeHeroImageIndex;
+                return (
+                  <button
+                    key={src + index}
+                    type="button"
+                    onClick={() => setActiveHeroImageIndex(index)}
+                    className={`relative h-20 w-28 overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                      isActive ? "ring-2 ring-emerald-500" : "ring-0"
+                    }`}
+                  >
+                    <Image
+                      src={src}
+                      alt="Skin Microbiome Test thumbnail"
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
