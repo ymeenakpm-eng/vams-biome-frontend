@@ -66,7 +66,7 @@ export default function Navbar() {
                 <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
                   Home
                 </Link>
-                <Link href="/well" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/tests" className="text-gray-700 hover:text-primary transition-colors">
                   Shop
                 </Link>
                 <Link
@@ -148,7 +148,7 @@ export default function Navbar() {
 
                 {/* Primary CTA */}
                 <Link
-                  href="/well"
+                  href="/tests"
                   className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
                 >
                   Start with a kit
@@ -181,7 +181,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/well"
+              href="/tests"
               className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
@@ -265,7 +265,7 @@ export default function Navbar() {
               Admin login
             </Link>
             <Link
-              href="/well"
+              href="/tests"
               className="block px-3 py-2 text-center text-white bg-primary rounded-md hover:bg-primary-dark transition-colors"
               onClick={() => setIsOpen(false)}
             >

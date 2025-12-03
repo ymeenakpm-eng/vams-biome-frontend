@@ -80,8 +80,18 @@ export default function CartPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 py-16">
-      <div className="mx-auto w-full max-w-6xl px-4">
-        <h1 className="mb-6 text-5xl font-semibold text-slate-900">Your cart</h1>
+      <div className="mx-auto w-full px-3 md:px-8 lg:px-12">
+        <div className="mb-8 flex items-baseline justify-between">
+          <h1 className="text-4xl font-semibold text-slate-900">Shopping Cart</h1>
+          {items.length > 0 && (
+            <button
+              type="button"
+              className="text-base font-normal text-sky-700 hover:underline"
+            >
+              Deselect all items
+            </button>
+          )}
+        </div>
 
         {loading && <p className="text-lg text-slate-600">Loading your cart...</p>}
 
@@ -103,64 +113,112 @@ export default function CartPage() {
             {items.length === 0 ? (
               <p className="text-lg text-slate-600">Your cart is currently empty.</p>
             ) : (
-              <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+              <div className="grid gap-6 md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
                 <div className="space-y-4">
                   <ul className="divide-y divide-slate-200 rounded-lg bg-white shadow-sm">
                     {items.map((item: any) => (
-                      <li
-                        key={item.id}
-                        className="flex items-center justify-between gap-4 px-4 py-3"
-                      >
-                        <div>
-                          <p className="text-xl font-medium text-slate-900">
-                            {item.title}
-                          </p>
-                          <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-emerald-500 bg-emerald-50 px-4 py-2 text-sm text-slate-700">
+                      <li key={item.id} className="px-4 py-4">
+                        <div className="grid gap-4 grid-cols-[auto,auto,minmax(0,1.6fr),minmax(0,0.6fr)] items-start">
+                          {/* Checkbox */}
+                          <div className="pt-8">
+                            <input
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600"
+                              defaultChecked
+                            />
+                          </div>
+
+                          {/* Left: item image placeholder */}
+                          <div className="relative h-24 w-32 overflow-hidden rounded-md bg-slate-100">
+                            {/* In a real build, map variant metadata to an image; placeholder for now */}
+                            <span className="absolute inset-0 flex items-center justify-center text-xs text-slate-400">
+                              Kit image
+                            </span>
+                          </div>
+
+                          {/* Middle: title and basic info */}
+                          <div className="space-y-1 text-base">
+                            <p className="text-lg font-semibold text-slate-900 line-clamp-2">
+                              {item.title}
+                            </p>
+                            {item.description && (
+                              <p className="text-sm text-slate-600 line-clamp-2">{item.description}</p>
+                            )}
+                            {!item.description && (
+                              <p className="text-sm text-slate-600 line-clamp-2">
+                                Biome test kit or product from your Medusa store. Full product copy can
+                                be wired here later.
+                              </p>
+                            )}
+                            <p className="text-sm font-medium text-emerald-700">In stock</p>
+                            <p className="text-xs font-semibold text-sky-700">✓prime</p>
+                          </div>
+
+                          {/* Right: price column */}
+                          <div className="flex flex-col items-end gap-1 text-right">
+                            {item.total && (
+                              <p className="text-lg font-semibold text-slate-900">
+                                {formatCurrency(item.total)}
+                              </p>
+                            )}
+                            {item.unit_price && (
+                              <p className="text-xs text-slate-500">
+                                {formatCurrency(item.unit_price)} each
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Bottom row: quantity controls + actions like Amazon */}
+                        <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-slate-700">
+                          <button
+                            type="button"
+                            onClick={() => handleRemove(item.id)}
+                            disabled={loading}
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-amber-400 text-[11px] font-semibold text-amber-700 hover:bg-amber-50"
+                            title="Remove"
+                          >
+                            <FaTrashAlt className="h-3 w-3" />
+                          </button>
+                          <div className="inline-flex items-center gap-2 rounded-full border border-amber-400 bg-white px-3 py-1">
                             <button
                               type="button"
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-emerald-400 bg-white text-sm text-emerald-700"
-                              onClick={() =>
-                                handleQuantityChange(item.id, item.quantity - 1)
-                              }
+                              className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold text-amber-700 hover:bg-amber-50"
+                              onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
                               disabled={loading || item.quantity <= 1}
                             >
                               -
                             </button>
-                            <span className="min-w-[2rem] text-center text-lg font-medium">
+                            <span className="min-w-[1.75rem] text-center text-sm font-semibold">
                               {item.quantity}
                             </span>
                             <button
                               type="button"
-                              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-emerald-400 bg-white text-xs text-emerald-700"
-                              onClick={() =>
-                                handleQuantityChange(item.id, item.quantity + 1)
-                              }
+                              className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold text-amber-700 hover:bg-amber-50"
+                              onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                               disabled={loading}
                             >
                               +
                             </button>
-                            <button
-                              type="button"
-                              onClick={() => handleRemove(item.id)}
-                              disabled={loading}
-                              className="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-transparent text-emerald-700 hover:text-emerald-800"
-                              title="Remove"
-                            >
-                              <FaTrashAlt className="h-4 w-4" />
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-3 text-[11px] text-sky-700">
+                            <button type="button" className="hover:underline">
+                              Delete
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button type="button" className="hover:underline">
+                              Save for later
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button type="button" className="hover:underline">
+                              See more like this
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button type="button" className="hover:underline">
+                              Share
                             </button>
                           </div>
-                        </div>
-                        <div className="flex flex-col items-end gap-1">
-                          {item.unit_price && (
-                            <p className="text-lg font-semibold text-slate-900">
-                              {formatCurrency(item.unit_price)}
-                            </p>
-                          )}
-                          {item.total && (
-                            <p className="text-lg font-semibold text-slate-900">
-                              {formatCurrency(item.total)}
-                            </p>
-                          )}
                         </div>
                       </li>
                     ))}
@@ -173,47 +231,49 @@ export default function CartPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
-                    <span className="text-base font-medium text-slate-900">
-                      Cart total
-                    </span>
-                    {cart?.total && (
-                      <span className="text-lg font-semibold text-emerald-700">
-                        {formatCurrency(cart.total)}
+                  <div className="rounded-lg bg-white px-4 py-5 shadow-sm">
+                    <p className="text-lg text-slate-900">
+                      Subtotal ({items.length} {items.length === 1 ? "item" : "items"}):
+                      <span className="ml-1 text-2xl font-semibold text-emerald-700">
+                        {cart?.total ? formatCurrency(cart.total) : ""}
                       </span>
-                    )}
+                    </p>
+                    <label className="mt-3 flex items-center gap-2 text-sm text-slate-700">
+                      <input type="checkbox" className="h-4 w-4 rounded border-slate-300" />
+                      This order contains a gift
+                    </label>
+                    <Link
+                      href="/checkout"
+                      className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-emerald-700"
+                    >
+                      Proceed to Buy
+                    </Link>
                   </div>
 
-                  <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 text-sm text-slate-700 shadow-sm">
-                    <p className="text-xl font-semibold text-slate-900">
-                      {cart?.total ? formatCurrency(cart.total) : ""}
+                  <div className="rounded-lg border border-slate-200 bg-white px-4 py-5 text-sm text-slate-800 shadow-sm">
+                    <p className="text-lg font-semibold text-slate-900">
+                      Customers also viewed
                     </p>
-                    <p className="mt-2 text-sm text-emerald-700 font-medium">
-                      Eligible for fast delivery in select cities
-                    </p>
-                    <p className="mt-2 text-sm">
-                      FREE delivery on subscription orders over a certain value. Final shipping and
-                      taxes are calculated at checkout.
-                    </p>
-                    <p className="mt-4 text-sm font-semibold text-emerald-800">
-                      In stock
-                    </p>
-                    <div className="mt-2 grid grid-cols-2 gap-y-2 text-sm">
-                      <span className="text-slate-500">Ships from</span>
-                      <span className="font-medium text-slate-900">VAMS BIOME</span>
-                      <span className="text-slate-500">Sold by</span>
-                      <span className="font-medium text-slate-900">VAMS BIOME Marketplace</span>
-                      <span className="text-slate-500">Payment</span>
-                      <span className="font-medium text-emerald-700">Secure at checkout</span>
+                    <div className="mt-3 flex gap-3">
+                      <div className="relative h-16 w-20 overflow-hidden rounded-md bg-slate-100">
+                        <span className="absolute inset-0 flex items-center justify-center text-xs text-slate-400">
+                          Kit image
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="line-clamp-2 text-sm font-medium text-slate-900">
+                          Another VAMS BIOME test kit or supplement can be showcased here.
+                        </p>
+                        <p className="mt-2 text-sm font-semibold text-emerald-700">₹1,999.00</p>
+                        <button
+                          type="button"
+                          className="mt-2 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+                        >
+                          Add to cart (demo)
+                        </button>
+                      </div>
                     </div>
                   </div>
-
-                  <Link
-                    href="/checkout"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-emerald-600 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-emerald-700"
-                  >
-                    Proceed to checkout
-                  </Link>
                 </div>
               </div>
             )}

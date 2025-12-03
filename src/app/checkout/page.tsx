@@ -21,29 +21,55 @@ export default function CheckoutPage() {
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [configTotals, setConfigTotals] = useState<{
+    gut?: number;
+    vaginal?: number;
+    oral?: number;
+    skin?: number;
+  }>({});
 
   useEffect(() => {
     const id = getStoredCartId();
     if (!id) {
       setLoading(false);
       setCartId(null);
-      return;
+    } else {
+      setCartId(id);
+
+      const loadCart = async () => {
+        try {
+          const c = await getCart(id);
+          setCart(c);
+        } catch (e) {
+          setError("Failed to load cart. Please try again.");
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      loadCart();
     }
 
-    setCartId(id);
+    // Read any stored configuration totals from localStorage (demo only)
+    try {
+      if (typeof window !== "undefined") {
+        const gut = Number(window.localStorage.getItem("vamsbiome_gut_config_total") || "NaN");
+        const vaginal = Number(
+          window.localStorage.getItem("vamsbiome_vaginal_config_total") || "NaN"
+        );
+        const oral = Number(window.localStorage.getItem("vamsbiome_oral_config_total") || "NaN");
+        const skin = Number(window.localStorage.getItem("vamsbiome_skin_config_total") || "NaN");
 
-    const loadCart = async () => {
-      try {
-        const c = await getCart(id);
-        setCart(c);
-      } catch (e) {
-        setError("Failed to load cart. Please try again.");
-      } finally {
-        setLoading(false);
+        setConfigTotals({
+          gut: Number.isNaN(gut) ? undefined : gut,
+          vaginal: Number.isNaN(vaginal) ? undefined : vaginal,
+          oral: Number.isNaN(oral) ? undefined : oral,
+          skin: Number.isNaN(skin) ? undefined : skin,
+        });
       }
-    };
-
-    loadCart();
+    } catch {
+      // ignore storage errors
+    }
   }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -216,9 +242,7 @@ export default function CheckoutPage() {
             {/* Right: order summary */}
             <aside className="space-y-4">
               <section className="rounded-lg bg-white p-6 shadow-sm">
-                <h2 className="mb-3 text-xl font-semibold text-slate-900">
-                  Order summary
-                </h2>
+                <h2 className="mb-3 text-xl font-semibold text-slate-900">Order summary</h2>
                 <ul className="space-y-2 text-sm text-slate-700">
                   {items.map((item: any) => (
                     <li key={item.id} className="flex items-start justify-between gap-3">
@@ -247,6 +271,50 @@ export default function CheckoutPage() {
                     </span>
                   )}
                 </div>
+
+                {(configTotals.gut || configTotals.vaginal || configTotals.oral || configTotals.skin) && (
+                  <div className="mt-3 rounded-md bg-emerald-50 px-3 py-2 text-xs text-emerald-900">
+                    <p className="font-semibold">Config totals from test kits (demo)</p>
+                    <ul className="mt-1 space-y-0.5 pl-4">
+                      {configTotals.gut && (
+                        <li>
+                          GutX: <span className="font-semibold">₹{configTotals.gut.toFixed(0)}</span>
+                        </li>
+                      )}
+                      {configTotals.vaginal && (
+                        <li>
+                          VagiX: <span className="font-semibold">₹{configTotals.vaginal.toFixed(0)}</span>
+                        </li>
+                      )}
+                      {configTotals.oral && (
+                        <li>
+                          OralX: <span className="font-semibold">₹{configTotals.oral.toFixed(0)}</span>
+                        </li>
+                      )}
+                      {configTotals.skin && (
+                        <li>
+                          SkinX: <span className="font-semibold">₹{configTotals.skin.toFixed(0)}</span>
+                        </li>
+                      )}
+                    </ul>
+                    <div className="mt-1 flex items-center justify-between text-[11px] font-semibold">
+                      <span>All configured kits total</span>
+                      <span>
+                        ₹
+                        {(
+                          (configTotals.gut || 0) +
+                          (configTotals.vaginal || 0) +
+                          (configTotals.oral || 0) +
+                          (configTotals.skin || 0)
+                        ).toFixed(0)}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-[11px] text-emerald-900/80">
+                      These are calculated from your selected tiers and Insight Packs on the test kit
+                      pages and are not yet linked to the Medusa cart total.
+                    </p>
+                  </div>
+                )}
               </section>
 
               <section className="rounded-lg border border-slate-200 bg-white p-5 text-xs text-slate-700 shadow-sm">
