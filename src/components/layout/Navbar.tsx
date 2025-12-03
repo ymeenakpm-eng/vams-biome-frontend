@@ -140,24 +140,17 @@ export default function Navbar() {
                     <div className="absolute right-0 mt-2 w-40 rounded-md bg-white py-2 shadow-lg ring-1 ring-black/5 text-xs">
                       <Link
                         href="/login"
-                        className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50"
+                        className="block px-3 py-1.5 text-base text-gray-700 hover:bg-gray-50"
                         onClick={() => setAccountOpen(false)}
                       >
                         Login
                       </Link>
                       <Link
                         href="/register"
-                        className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50"
+                        className="block px-3 py-1.5 text-base text-gray-700 hover:bg-gray-50"
                         onClick={() => setAccountOpen(false)}
                       >
                         Register
-                      </Link>
-                      <Link
-                        href="/dashboard"
-                        className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50"
-                        onClick={() => setAccountOpen(false)}
-                      >
-                        Admin login
                       </Link>
                     </div>
                   )}
@@ -307,13 +300,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Register
-            </Link>
-            <Link
-              href="/dashboard"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
-              onClick={() => setIsOpen(false)}
-            >
-              Admin login
             </Link>
             <Link
               href="/tests"
