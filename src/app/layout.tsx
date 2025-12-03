@@ -126,6 +126,11 @@ export default function RootLayout({
                       Partners / Affiliate Program
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/faq" className="hover:text-cyan-300">
+                      FAQ
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
