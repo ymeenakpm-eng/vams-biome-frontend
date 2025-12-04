@@ -98,22 +98,24 @@ const heroImages = [
   "/test/test-kit.png",
 ];
 
-// Demo-only fake variant IDs for wiring the flow.
-// Replace these with real Medusa variant IDs later.
-const GUT_BASE_VARIANT_ID = "gut-base-demo-variant";
+// Real Medusa variant IDs for Gut kit and related add-ons.
+// Base Gut microbiome kit product
+const GUT_BASE_VARIANT_ID = "variant_01KBM4V1M09D1CJ8X6X23086DD";
 
+// Insight packs for GutX
 const PACK_VARIANT_IDS: Record<string, string> = {
-  "gut-brain": "gut-pack-gut-brain-demo",
-  metabolic: "gut-pack-metabolic-demo",
-  longevity: "gut-pack-longevity-demo",
-  inflammation: "gut-pack-inflammation-demo",
-  "hormone-gut": "gut-pack-hormone-demo",
+  "gut-brain": "variant_01KBM4V502HWW3KBS1PF8GZDDE",
+  metabolic: "variant_01KBM4V5TGSZJEWKMXQGZDHP9E",
+  longevity: "variant_01KBM4V6MKDE2AKR4TMZD3VX0D",
+  inflammation: "variant_01KBM4V7F0DQ7MMT7X8DBDDEEA",
+  "hormone-gut": "variant_01KBM4V89G3Q5G0GF61RXZ33NA",
 };
 
+// Sequencing tiers for GutX (basic still uses a demo value until its real ID is wired)
 const TIER_VARIANT_IDS: Record<string, string> = {
   basic: "gut-tier-basic-demo",
-  advanced: "gut-tier-advanced-demo",
-  premium: "gut-tier-premium-demo",
+  advanced: "variant_01KBM4V9ZYJT67RKEDPDDG65ZE",
+  premium: "variant_01KBM4VAVR2MTQ49SJXHAVQAFR",
 };
 
 const PACK_PRICES: Record<string, number> = {

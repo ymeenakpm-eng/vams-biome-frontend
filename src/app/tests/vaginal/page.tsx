@@ -92,21 +92,23 @@ const tiers = [
   },
 ];
 
-// Demo-only fake variant IDs for wiring the flow.
-// Replace these with real Medusa variant IDs later.
-const VAGINAL_BASE_VARIANT_ID = "vaginal-base-demo-variant";
+// Real Medusa variant IDs for Vaginal kit and related add-ons.
+// Base Vaginal microbiome kit product
+const VAGINAL_BASE_VARIANT_ID = "variant_01KBM4V2FJ99KDEK2SXMD7RY33";
 
+// Insight packs for VaginalX
 const VAGINAL_PACK_VARIANT_IDS: Record<string, string> = {
-  fertility: "vaginal-pack-fertility-demo",
-  menopause: "vaginal-pack-menopause-demo",
-  candida: "vaginal-pack-candida-demo",
-  "sexual-health": "vaginal-pack-sexual-health-demo",
+  fertility: "variant_01KBM4VBPTJN33WJAGSTMEZ8SP", // Fertility Pack
+  menopause: "variant_01KBM4VCHPKW3C9ER25X2G13GW", // Menopause Pack
+  candida: "variant_01KBM4VDCA35YDMD4YMMPZXYPT", // Candida / Mycobiome Pack
+  "sexual-health": "variant_01KBM4VE7RNG4ZPM6XZRS6D50J", // Sexual Health Pack
 };
 
+// Sequencing tiers for VaginalX
 const VAGINAL_TIER_VARIANT_IDS: Record<string, string> = {
-  basic: "vaginal-tier-basic-demo",
-  advanced: "vaginal-tier-advanced-demo",
-  premium: "vaginal-tier-premium-demo",
+  basic: "variant_01KBM4VF4A947C3MGNV4JHDWSY", // Vaginal Tier 1 — Basic (16S)
+  advanced: "variant_01KBM4VG0S7M1RDPV9962JWMZT", // Vaginal Tier 2 — Advanced (WGS)
+  premium: "variant_01KBM4VGVPNBAKHKTRC3VZZ1B1", // Vaginal Tier 3 — Premium (MetaT)
 };
 
 const VAGINAL_PACK_PRICES: Record<string, number> = {
