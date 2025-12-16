@@ -56,7 +56,7 @@ export default function Navbar() {
       <div className="w-full px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-20">
           {/* Logo (mobile) */}
-          <div className="flex-shrink-0 flex items-center md:hidden">
+          <div className="flex-shrink-0 flex items-center lg:hidden">
             <Link href="/" className="flex items-center gap-3">
               <span className="relative h-6 w-auto -mt-1">
                 <Image
@@ -72,10 +72,10 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block flex-1">
-            <div className="flex items-center leading-tight text-base md:text-lg lg:text-xl">
+          <div className="hidden lg:block flex-1">
+            <div className="flex flex-nowrap items-center leading-tight text-base lg:text-lg xl:text-xl">
               {/* Left: logo + main nav tabs */}
-              <div className="flex items-center gap-8 lg:gap-10">
+              <div className="flex flex-nowrap items-center gap-5 xl:gap-7 min-w-0">
                 <Link href="/" className="flex items-center gap-3">
                   <span className="relative h-6 w-auto -mt-1">
                     <Image
@@ -88,47 +88,47 @@ export default function Navbar() {
                     />
                   </span>
                 </Link>
-                <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   Home
                 </Link>
-                <Link href="/tests" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/tests" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   Shop
                 </Link>
                 <Link
                   href="/how-it-works"
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
                 >
                   How It Works
                 </Link>
                 <Link
                   href="/ai/report"
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
                 >
                   AI Report Demo
                 </Link>
                 <Link
                   href="/science"
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
                 >
                   The Science
                 </Link>
                 <Link
                   href="/professionals"
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
                 >
                   Professionals
                 </Link>
-                <Link href="/blog" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/blog" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   Blog
                 </Link>
               </div>
 
               {/* Right: contact + account + cart + primary CTA */}
-              <div className="ml-auto flex items-center gap-4 lg:gap-5">
-                <Link href="/about" className="text-gray-700 hover:text-primary transition-colors">
+              <div className="ml-auto flex flex-nowrap items-center gap-3 xl:gap-4">
+                <Link href="/about" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   About Us
                 </Link>
-                <Link href="/contact" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/contact" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   Contact Us
                 </Link>
 
@@ -137,7 +137,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => setAccountOpen((prev) => !prev)}
-                    className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors"
+                    className="flex items-center gap-1 whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
                   >
                     <span>My dashboard</span>
                     <span className="text-sm">▼</span>
@@ -222,7 +222,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
@@ -235,7 +235,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="lg:hidden bg-white shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
