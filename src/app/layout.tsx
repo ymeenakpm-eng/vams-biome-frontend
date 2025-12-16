@@ -35,9 +35,9 @@ export default function RootLayout({
         <main className="pt-16">{children}</main>
 
         {/* Footer */}
-        <footer className="mt-8 border-t border-sky-900 bg-[#004E7C] pt-8 text-xs text-slate-100">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="grid gap-6 md:grid-cols-4">
+        <footer className="mt-8 w-full border-t border-sky-900 bg-[#004E7C] pt-8 text-lg text-slate-100">
+          <div className="w-full px-6">
+            <div className="grid w-full gap-8 md:grid-cols-4">
               {/* Brand + description */}
               <div className="space-y-2 md:pl-2">
                 <div className="flex items-center gap-2">
@@ -51,17 +51,17 @@ export default function RootLayout({
                     />
                   </span>
                 </div>
-                <p className="text-xs text-sky-100/80">
+                <p className="text-base text-sky-100/80">
                   Diagnostics, AI insights, and microbiome-first products designed for real-world care.
                 </p>
               </div>
 
               {/* Explore */}
               <div>
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-100/80">
+                <h3 className="mb-3 text-lg font-semibold uppercase tracking-wide text-sky-100/80">
                   Explore
                 </h3>
-                <ul className="space-y-1">
+                <ul className="space-y-2 text-2xl">
                   <li>
                     <Link href="/well" className="hover:text-cyan-300">
                       Diagnostics (BiomeWell)
@@ -75,6 +75,16 @@ export default function RootLayout({
                   <li>
                     <Link href="/mart" className="hover:text-cyan-300">
                       Products (BiomeMart)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/professionals" className="hover:text-cyan-300">
+                      Professionals
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/labs" className="hover:text-cyan-300">
+                      VAMS Labs
                     </Link>
                   </li>
                   <li>
@@ -102,13 +112,33 @@ export default function RootLayout({
 
               {/* Learn */}
               <div>
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-100/80">
+                <h3 className="mb-3 text-lg font-semibold uppercase tracking-wide text-sky-100/80">
                   Learn
                 </h3>
-                <ul className="space-y-1">
+                <ul className="space-y-2 text-2xl">
                   <li>
                     <Link href="/blog" className="hover:text-cyan-300">
                       BiomeInsights Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/guides" className="hover:text-cyan-300">
+                      Guides / Ebooks
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/webinars" className="hover:text-cyan-300">
+                      Webinars
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/events" className="hover:text-cyan-300">
+                      Events
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/academy" className="hover:text-cyan-300">
+                      VAMS Academy
                     </Link>
                   </li>
                   <li>
@@ -127,6 +157,21 @@ export default function RootLayout({
                     </Link>
                   </li>
                   <li>
+                    <Link href="/press" className="hover:text-cyan-300">
+                      Press
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/careers" className="hover:text-cyan-300">
+                      Careers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/investors" className="hover:text-cyan-300">
+                      Investors
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/faq" className="hover:text-cyan-300">
                       FAQ
                     </Link>
@@ -136,10 +181,10 @@ export default function RootLayout({
 
               {/* Legal */}
               <div>
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-100/80">
+                <h3 className="mb-3 text-lg font-semibold uppercase tracking-wide text-sky-100/80">
                   Legal
                 </h3>
-                <ul className="space-y-1">
+                <ul className="space-y-2 text-2xl">
                   <li>
                     <Link href="/privacy-policy" className="hover:text-cyan-300">
                       Privacy Policy
@@ -165,12 +210,17 @@ export default function RootLayout({
                       Data Protection (HIPAA / GDPR)
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/medical-disclaimer" className="hover:text-cyan-300">
+                      Medical Disclaimer
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-6 flex flex-col gap-2 border-t border-sky-800 pt-4 text-[11px] text-sky-100/80 md:flex-row md:items-center md:justify-between">
-              <div>
+            <div className="mt-6 grid gap-6 border-t border-sky-800 pt-5 text-sm text-sky-100/80 md:grid-cols-2">
+              <div className="w-full">
                 <p>
                   © {new Date().getFullYear()} VAMS BIOME. For informational use only; not a substitute for
                   professional medical advice, diagnosis, or treatment.
@@ -179,7 +229,7 @@ export default function RootLayout({
                   BiomeMart store experiences are powered by a self-hosted Medusa backend.
                 </p>
               </div>
-              <div className="flex flex-col gap-1 md:items-end">
+              <div className="flex w-full flex-col gap-2 md:items-end">
                 <p>
                   Contact: <a href="mailto:support@vamsbiome.com" className="hover:text-cyan-300">support@vamsbiome.com</a>
                 </p>
@@ -202,7 +252,7 @@ export default function RootLayout({
             </div>
 
             {/* Global disclaimers */}
-            <div className="mt-4 space-y-1 border-t border-sky-800 pt-3 text-[10px] leading-relaxed text-sky-100/80">
+            <div className="mt-5 space-y-2 border-t border-sky-800 pt-4 text-sm leading-relaxed text-sky-100/80">
               <p>
                 Information provided by VAMS BIOME is intended for general education and wellness support. It is
                 not designed or approved to diagnose, treat, cure, or prevent any disease and should never replace

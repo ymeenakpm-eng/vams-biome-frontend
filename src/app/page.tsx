@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white pb-16">
+    <main className="min-h-screen bg-white pb-16 overflow-x-hidden">
 
       {/* Hero (full-width) */}
-      <section className="relative mb-10 overflow-hidden bg-slate-950">
+      <section className="relative mb-10 overflow-hidden overflow-x-hidden bg-slate-950">
         <div className="pointer-events-none absolute inset-0">
           {/* Galaxy background image */}
           <Image
@@ -22,76 +22,156 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-900/70" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-0 pt-8 pb-4 md:px-2">
-          <div className="mb-6 -ml-4 flex items-baseline gap-4 text-cyan-200 md:-ml-6">
-            <span className="text-4xl font-semibold tracking-[0.35em] md:text-5xl">
+        <div className="relative w-full px-4 pt-28 pb-4 md:px-10 md:pt-32 lg:px-16 xl:px-20">
+          <div className="mb-6 flex flex-wrap items-baseline gap-4 text-cyan-200">
+            <span className="text-5xl font-semibold tracking-[0.35em] md:text-6xl">
               LAUNCH PREVIEW
             </span>
-            <span className="hidden text-xs font-semibold tracking-[0.35em] sm:inline md:text-sm">
+            <span className="hidden text-sm font-semibold tracking-[0.35em] sm:inline md:text-base">
               INDIA | AUSTRALIA
             </span>
           </div>
 
-          <div className="flex min-h-[420px] md:min-h-[460px] flex-col gap-8 md:flex-row md:items-center">
-            <div className="flex-1 md:-ml-20 lg:-ml-24">
+          <div className="min-h-[708px] md:min-h-[748px] grid grid-cols-2 gap-8 md:items-center md:gap-16 lg:gap-20">
+            <div>
 
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-cyan-300">
                 VAMS BIOME microbiome tests
               </p>
-              <h1 className="mt-7 text-4xl font-extrabold text-slate-50 md:text-5xl lg:text-6xl">
+              <h1 className="mt-7 text-5xl font-extrabold text-slate-50 md:text-7xl lg:text-8xl">
                 Get a head start on your microbiome health.
               </h1>
-              <p className="mt-4 max-w-xl text-base text-sky-100/90 text-justify">
+              <p className="mt-4 max-w-2xl text-xl text-sky-100/90 text-justify">
                 Use at-home gut, vaginal, skin, and oral microbiome tests plus AI-powered reports to
                 discover what&apos;s really happening inside—and move into targeted probiotics and
                 protocols with confidence.
               </p>
+
               <div className="mt-6 flex flex-wrap items-center gap-3 md:gap-4">
                 <Link
                   href="/well"
-                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
+                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-base font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
                 >
                   Explore kits
                 </Link>
                 <Link
                   href="/ai/report"
-                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
+                  className="rounded-full bg-cyan-400 px-6 py-2.5 text-base font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:bg-cyan-300"
                 >
                   View report demo
                 </Link>
                 <Link
                   href="/campaign/gut"
-                  className="text-sm font-semibold text-cyan-100 hover:text-cyan-50 md:ml-2"
+                  className="text-base font-semibold text-cyan-100 hover:text-cyan-50 md:ml-2"
                 >
                   Is your gut holding you back?
                 </Link>
               </div>
             </div>
 
-            <div className="flex-1 space-y-8 mt-8 md:mt-0 md:pl-20 lg:pl-28">
+            <div className="space-y-8 mt-8 md:mt-0">
               <div className="rounded-3xl bg-slate-900/80 p-10 lg:p-12 shadow-sm ring-1 ring-white/10">
-                <h2 className="text-2xl font-semibold uppercase tracking-wide text-sky-200">
+                <h2 className="text-4xl font-semibold uppercase tracking-wide text-sky-200">
                   5 microbiome test kits
                 </h2>
-                <ul className="mt-4 grid gap-3 text-xl text-sky-100/90 sm:grid-cols-2">
-                  <li className="whitespace-nowrap">• Gut microbiome test</li>
-                  <li className="whitespace-nowrap">• Vaginal microbiome test</li>
-                  <li className="whitespace-nowrap">• Skin microbiome test</li>
-                  <li className="whitespace-nowrap">• Oral microbiome test</li>
-                  <li className="sm:col-span-2 whitespace-nowrap">• Full-body microbiome panel</li>
+                <ul className="mt-4 grid gap-3 text-3xl text-sky-100/90 sm:grid-cols-2">
+                  <li>• Gut microbiome test</li>
+                  <li>• Vaginal microbiome test</li>
+                  <li>• Skin microbiome test</li>
+                  <li>• Oral microbiome test</li>
+                  <li className="sm:col-span-2">• Full-body microbiome panel</li>
                 </ul>
               </div>
 
               <div className="rounded-3xl bg-sky-900/80 p-8 lg:p-10 text-sky-50 ring-1 ring-white/10">
-                <h3 className="text-2xl font-semibold uppercase tracking-wide text-sky-200">
+                <h3 className="text-4xl font-semibold uppercase tracking-wide text-sky-200">
                   Probiotic &amp; protocol highlights
                 </h3>
-                <ul className="mt-4 flex flex-wrap gap-x-10 gap-y-2 text-xl text-sky-50/90">
-                  <li className="whitespace-nowrap">• Targeted gut reset formulations</li>
-                  <li className="whitespace-nowrap">• Women&apos;s synbiotic stacks</li>
-                  <li className="whitespace-nowrap">• Skin &amp; oral microbiome care</li>
+                <ul className="mt-4 flex flex-wrap gap-x-10 gap-y-2 text-3xl text-sky-50/90">
+                  <li>• Targeted gut reset formulations</li>
+                  <li>• Women&apos;s synbiotic stacks</li>
+                  <li>• Skin &amp; oral microbiome care</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-black text-white">
+        <div className="vams-marquee border-y border-white/10">
+          <div className="vams-marquee-track py-2">
+            <div className="flex items-center gap-10 px-6 text-2xl font-semibold uppercase tracking-wide text-white/90">
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Clinically verified microbiome test
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Global shipping
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                ISO certified
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                NABH accredited
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                NABL accredited
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Fast delivery
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                COD available
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                EMI available
+              </span>
+            </div>
+
+            <div
+              className="flex items-center gap-10 px-6 text-2xl font-semibold uppercase tracking-wide text-white/90"
+              aria-hidden="true"
+            >
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Clinically verified microbiome test
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Global shipping
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                ISO certified
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                NABH accredited
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                NABL accredited
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                Fast delivery
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                COD available
+              </span>
+              <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span className="h-4 w-4 rounded-full bg-white" />
+                EMI available
+              </span>
             </div>
           </div>
         </div>

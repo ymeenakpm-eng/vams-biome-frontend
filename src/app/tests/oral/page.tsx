@@ -80,19 +80,21 @@ const tiers = [
   },
 ];
 
-// Demo-only fake variant IDs for wiring the flow.
-// Replace these with real Medusa variant IDs later.
-const ORAL_BASE_VARIANT_ID = "oral-base-demo-variant";
+// Real Medusa variant IDs for Oral kit and related add-ons.
+// Base Oral microbiome kit product
+const ORAL_BASE_VARIANT_ID = "variant_01KBM4V3AERDPBQS9W41J17ZJT";
 
+// Insight packs for OralX
 const ORAL_PACK_VARIANT_IDS: Record<string, string> = {
-  "gum-health": "oral-pack-gum-health-demo",
-  "oral-gut": "oral-pack-oral-gut-demo",
+  "gum-health": "variant_01KBM4VHP8WT7XKRYTN7DXWW2C", // Gum Health Pack
+  "oral-gut": "variant_01KBM4VJHBHD1X368GT698SDGJ", // Oral–Gut Axis Pack
 };
 
+// Sequencing tiers for OralX
 const ORAL_TIER_VARIANT_IDS: Record<string, string> = {
-  basic: "oral-tier-basic-demo",
-  advanced: "oral-tier-advanced-demo",
-  premium: "oral-tier-premium-demo",
+  basic: "variant_01KBM4VKBVET4SHC112MVSZ9E6", // Oral Tier 1 — Basic (16S)
+  advanced: "variant_01KBM4VM6B14ARDGM306429VBW", // Oral Tier 2 — Advanced (WGS)
+  premium: "variant_01KBM4VN20NNZS3D1Y5QCQY331", // Oral Tier 3 — Premium (MetaT)
 };
 
 const ORAL_PACK_PRICES: Record<string, number> = {

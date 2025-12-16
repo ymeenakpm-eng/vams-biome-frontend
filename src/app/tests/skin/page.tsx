@@ -86,20 +86,22 @@ const tiers = [
   },
 ];
 
-// Demo-only fake variant IDs for wiring the flow.
-// Replace these with real Medusa variant IDs later.
-const SKIN_BASE_VARIANT_ID = "skin-base-demo-variant";
+// Real Medusa variant IDs for Skin kit and related add-ons.
+// Base Skin microbiome kit product
+const SKIN_BASE_VARIANT_ID = "variant_01KBM4V458VF55WNVSGRKXWE5N";
 
+// Insight packs for SkinX
 const SKIN_PACK_VARIANT_IDS: Record<string, string> = {
-  acne: "skin-pack-acne-demo",
-  barrier: "skin-pack-barrier-demo",
-  fungal: "skin-pack-fungal-demo",
+  acne: "variant_01KBM4VNWR983XT6180QG97S9Y", // Acne Pack
+  barrier: "variant_01KBM4VPQ6V3BV4BTNAGH4V3KP", // Barrier Function Pack
+  fungal: "variant_01KBM4VQJ7DS41KTRDXJV888VG", // Fungal Balance Pack
 };
 
+// Sequencing tiers for SkinX
 const SKIN_TIER_VARIANT_IDS: Record<string, string> = {
-  basic: "skin-tier-basic-demo",
-  advanced: "skin-tier-advanced-demo",
-  premium: "skin-tier-premium-demo",
+  basic: "variant_01KBM4VRD1WRKHQ213Y5T9ZKCN", // Skin Tier 1 — Basic (16S)
+  advanced: "variant_01KBM4VS8RPN8Z5WWNF24QCXG1", // Skin Tier 2 — Advanced (WGS)
+  premium: "variant_01KBM4VT3W033V8MK6M6360B6M", // Skin Tier 3 — Premium (MetaT)
 };
 
 const SKIN_PACK_PRICES: Record<string, number> = {

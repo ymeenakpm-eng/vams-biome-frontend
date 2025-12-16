@@ -50,11 +50,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 bg-white transition-all duration-300 ${
-        scrolled ? "shadow-md py-2" : "py-2"
+        scrolled ? "shadow-md py-3" : "py-4"
       }`}
     >
       <div className="w-full px-3 sm:px-4 lg:px-6">
-        <div className="flex justify-between items-center h-14">
+        <div className="flex justify-between items-center h-20">
           {/* Logo (mobile) */}
           <div className="flex-shrink-0 flex items-center md:hidden">
             <Link href="/" className="flex items-center gap-3">
@@ -73,9 +73,9 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block flex-1">
-            <div className="flex items-center text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-lg md:text-xl lg:text-2xl">
               {/* Left: logo + main nav tabs */}
-              <div className="flex items-center gap-5 lg:gap-7">
+              <div className="flex items-center gap-8 lg:gap-10">
                 <Link href="/" className="flex items-center gap-3">
                   <span className="relative h-6 w-auto -mt-1">
                     <Image
@@ -112,6 +112,12 @@ export default function Navbar() {
                 >
                   The Science
                 </Link>
+                <Link
+                  href="/professionals"
+                  className="text-gray-700 hover:text-primary transition-colors"
+                >
+                  Professionals
+                </Link>
                 <Link href="/blog" className="text-gray-700 hover:text-primary transition-colors">
                   Blog
                 </Link>
@@ -134,23 +140,37 @@ export default function Navbar() {
                     className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors"
                   >
                     <span>My dashboard</span>
-                    <span className="text-[10px]">▼</span>
+                    <span className="text-sm">▼</span>
                   </button>
                   {accountOpen && (
-                    <div className="absolute right-0 mt-2 w-40 rounded-md bg-white py-2 shadow-lg ring-1 ring-black/5 text-xs">
+                    <div className="absolute right-0 mt-2 w-48 rounded-md bg-white py-2 shadow-lg ring-1 ring-black/5 text-lg">
                       <Link
                         href="/login"
-                        className="block px-3 py-1.5 text-base text-gray-700 hover:bg-gray-50"
+                        className="block px-3 py-1.5 text-lg text-gray-700 hover:bg-gray-50"
                         onClick={() => setAccountOpen(false)}
                       >
                         Login
                       </Link>
                       <Link
                         href="/register"
-                        className="block px-3 py-1.5 text-base text-gray-700 hover:bg-gray-50"
+                        className="block px-3 py-1.5 text-lg text-gray-700 hover:bg-gray-50"
                         onClick={() => setAccountOpen(false)}
                       >
                         Register
+                      </Link>
+                      <Link
+                        href="/track-kit"
+                        className="block px-3 py-1.5 text-lg text-gray-700 hover:bg-gray-50"
+                        onClick={() => setAccountOpen(false)}
+                      >
+                        Track kit
+                      </Link>
+                      <Link
+                        href="/activate-kit"
+                        className="block px-3 py-1.5 text-lg text-gray-700 hover:bg-gray-50"
+                        onClick={() => setAccountOpen(false)}
+                      >
+                        Activate kit
                       </Link>
                     </div>
                   )}
@@ -159,12 +179,12 @@ export default function Navbar() {
                 {/* Cart link with item count, styled like Amazon-style cart */}
                 <Link
                   href="/cart"
-                  className="relative flex items-center gap-1 rounded-md px-2 py-1 text-gray-700 hover:text-primary transition-colors"
+                  className="relative flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                 >
                   <span className="relative inline-flex items-center justify-center">
                     {/* Count just above cart icon, in VAMS BIOME green */}
                     {cartItemCount > 0 && (
-                      <span className="absolute -top-2 text-sm font-extrabold text-emerald-500">
+                      <span className="absolute -top-3 text-lg font-extrabold text-emerald-500">
                         {cartItemCount}
                       </span>
                     )}
@@ -173,7 +193,7 @@ export default function Navbar() {
                     <svg
                       aria-hidden="true"
                       viewBox="0 0 24 24"
-                      className="h-10 w-12 text-slate-800"
+                      className="h-14 w-16 text-slate-800"
                     >
                       <path
                         d="M4 5h3l2 9h9l2-6H9"
@@ -187,7 +207,7 @@ export default function Navbar() {
                       <circle cx="18" cy="19" r="1.8" fill="currentColor" />
                     </svg>
                   </span>
-                  <span className="-ml-2 text-sm font-semibold">Cart</span>
+                  <span className="-ml-2 text-lg font-semibold">Cart</span>
                 </Link>
 
                 {/* Primary CTA */}
@@ -207,7 +227,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
             >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              {isOpen ? <FaTimes size={32} /> : <FaBars size={32} />}
             </button>
           </div>
         </div>
@@ -219,91 +239,119 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/tests"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Shop
             </Link>
             <Link
               href="/how-it-works"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               How It Works
             </Link>
             <Link
               href="/ai/report"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               AI Report Demo
             </Link>
             <Link
               href="/science"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               The Science
             </Link>
             <Link
+              href="/professionals"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Professionals
+            </Link>
+            <Link
+              href="/guides"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Guides
+            </Link>
+            <Link
               href="/blog"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Blog
             </Link>
             <Link
               href="/about"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/contact"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Contact Us
             </Link>
             <Link
               href="/dashboard"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               My dashboard
             </Link>
             <Link
+              href="/track-kit"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Track kit
+            </Link>
+            <Link
+              href="/activate-kit"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Activate kit
+            </Link>
+            <Link
               href="/cart"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Cart
             </Link>
             <Link
               href="/login"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Login
             </Link>
             <Link
               href="/register"
-              className="block px-3 py-2 rounded-md text-base text-gray-700 hover:bg-gray-100"
+              className="block px-3 py-2 rounded-md text-lg text-gray-700 hover:bg-gray-100"
               onClick={() => setIsOpen(false)}
             >
               Register
             </Link>
             <Link
               href="/tests"
-              className="block px-3 py-2 text-center text-white bg-primary rounded-md hover:bg-primary-dark transition-colors"
+              className="block px-3 py-2 text-center text-lg text-white bg-primary rounded-md hover:bg-primary-dark transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Start with a kit
