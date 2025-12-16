@@ -94,7 +94,7 @@ export default function Navbar() {
 
                 {/* Menu area (scrolls instead of pushing logo out) */}
                 <div className="min-w-0 flex-1 pl-6">
-                  <div className="no-scrollbar flex min-w-0 flex-nowrap items-center gap-5 xl:gap-7 overflow-x-auto">
+                  <div className="no-scrollbar flex min-w-0 flex-nowrap items-center gap-4 xl:gap-6 overflow-x-auto pr-6">
                     <Link href="/" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                       Home
                     </Link>
@@ -133,7 +133,7 @@ export default function Navbar() {
               </div>
 
               {/* Right: contact + account + cart + primary CTA */}
-              <div className="ml-auto flex flex-shrink-0 flex-nowrap items-center gap-3 xl:gap-4">
+              <div className="relative z-10 ml-auto flex flex-shrink-0 flex-nowrap items-center gap-3 xl:gap-4 bg-white pl-6">
                 <Link href="/about" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   About Us
                 </Link>
@@ -193,7 +193,7 @@ export default function Navbar() {
                   <span className="relative inline-flex items-center justify-center">
                     {/* Count just above cart icon, in VAMS BIOME green */}
                     {cartItemCount > 0 && (
-                      <span className="absolute -top-3 text-lg font-extrabold text-emerald-500">
+                      <span className="absolute -top-2 text-sm font-extrabold text-emerald-500">
                         {cartItemCount}
                       </span>
                     )}
@@ -202,7 +202,7 @@ export default function Navbar() {
                     <svg
                       aria-hidden="true"
                       viewBox="0 0 24 24"
-                      className="h-14 w-16 text-slate-800"
+                      className="h-9 w-9 text-slate-800"
                     >
                       <path
                         d="M4 5h3l2 9h9l2-6H9"
@@ -216,13 +216,13 @@ export default function Navbar() {
                       <circle cx="18" cy="19" r="1.8" fill="currentColor" />
                     </svg>
                   </span>
-                  <span className="-ml-2 text-lg font-semibold">Cart</span>
+                  <span className="-ml-1 text-base font-semibold">Cart</span>
                 </Link>
 
                 {/* Primary CTA */}
                 <Link
                   href="/tests"
-                  className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
+                  className="hidden 2xl:inline-flex bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
                 >
                   Start with a kit
                 </Link>
