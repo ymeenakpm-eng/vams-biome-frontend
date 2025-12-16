@@ -94,7 +94,7 @@ export default function Navbar() {
 
                 {/* Menu area (scrolls instead of pushing logo out) */}
                 <div className="min-w-0 flex-1 pl-6">
-                  <div className="flex min-w-0 flex-nowrap items-center gap-5 xl:gap-7 overflow-x-auto">
+                  <div className="no-scrollbar flex min-w-0 flex-nowrap items-center gap-5 xl:gap-7 overflow-x-auto">
                     <Link href="/" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                       Home
                     </Link>
