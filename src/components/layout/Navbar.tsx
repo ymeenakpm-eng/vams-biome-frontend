@@ -73,11 +73,11 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:block flex-1">
-            <div className="flex flex-nowrap items-center leading-tight text-base lg:text-lg xl:text-xl">
-              {/* Left: logo + main nav tabs */}
-              <div className="flex flex-nowrap items-center gap-5 xl:gap-7 min-w-0">
+            <div className="flex flex-nowrap items-center leading-tight text-base lg:text-lg xl:text-xl min-w-0">
+              {/* Logo (must never shrink or clip) */}
+              <div className="flex-shrink-0 overflow-visible">
                 <Link href="/" className="flex items-center gap-3">
-                  <span className="relative h-6 w-auto -mt-1">
+                  <span className="relative h-8 w-auto overflow-visible">
                     <Image
                       src="/images/logo-vams-biome-v2.png.png"
                       alt="VAMS Biome logo"
@@ -88,43 +88,49 @@ export default function Navbar() {
                     />
                   </span>
                 </Link>
-                <Link href="/" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
-                  Home
-                </Link>
-                <Link href="/tests" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
-                  Shop
-                </Link>
-                <Link
-                  href="/how-it-works"
-                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
-                >
-                  How It Works
-                </Link>
-                <Link
-                  href="/ai/report"
-                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
-                >
-                  AI Report Demo
-                </Link>
-                <Link
-                  href="/science"
-                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
-                >
-                  The Science
-                </Link>
-                <Link
-                  href="/professionals"
-                  className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
-                >
-                  Professionals
-                </Link>
-                <Link href="/blog" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
-                  Blog
-                </Link>
+              </div>
+
+              {/* Menu area (scrolls instead of pushing logo out) */}
+              <div className="flex min-w-0 flex-1 items-center pl-6">
+                <div className="flex flex-nowrap items-center gap-5 xl:gap-7 overflow-x-auto">
+                  <Link href="/" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
+                    Home
+                  </Link>
+                  <Link href="/tests" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
+                    Shop
+                  </Link>
+                  <Link
+                    href="/how-it-works"
+                    className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
+                  >
+                    How It Works
+                  </Link>
+                  <Link
+                    href="/ai/report"
+                    className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
+                  >
+                    AI Report Demo
+                  </Link>
+                  <Link
+                    href="/science"
+                    className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
+                  >
+                    The Science
+                  </Link>
+                  <Link
+                    href="/professionals"
+                    className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Professionals
+                  </Link>
+                  <Link href="/blog" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
+                    Blog
+                  </Link>
+                </div>
               </div>
 
               {/* Right: contact + account + cart + primary CTA */}
-              <div className="ml-auto flex flex-nowrap items-center gap-3 xl:gap-4">
+              <div className="ml-auto flex flex-shrink-0 flex-nowrap items-center gap-3 xl:gap-4">
                 <Link href="/about" className="whitespace-nowrap text-gray-700 hover:text-primary transition-colors">
                   About Us
                 </Link>
